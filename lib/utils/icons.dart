@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class CustomIcon extends StatelessWidget {
   final String iconName;
   final double size;
-  final Color color;
+  final Color? color;
 
   const CustomIcon({
     required this.iconName,

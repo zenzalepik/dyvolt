@@ -26,7 +26,7 @@ class BannerSlider extends StatefulWidget {
   final List<String> imageAssetNames;
   final List<Color> carouselColors;
 
-  BannerSlider({
+  const BannerSlider({
     required this.imageAssetNames,
     required this.carouselColors,
   });
@@ -36,7 +36,7 @@ class BannerSlider extends StatefulWidget {
 }
 
 class _BannerSliderState extends State<BannerSlider> {
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
   int _currentIndex = 0;
 
   @override
@@ -49,7 +49,7 @@ class _BannerSliderState extends State<BannerSlider> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        SizedBox(
           height: 180,
           child: PageView.builder(
             controller: _pageController,
@@ -78,7 +78,7 @@ class _BannerSliderState extends State<BannerSlider> {
                 margin: const EdgeInsets.symmetric(horizontal: 5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       color: Color(0x591B1B0D),
                       offset: Offset(0, 5),
