@@ -43,9 +43,8 @@ class ProductCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            width: 152,
-            height: 152,
+          AspectRatio(
+            aspectRatio: 1 / 1,
             child: Image.asset(
               imageUrl,
               fit: BoxFit.cover,

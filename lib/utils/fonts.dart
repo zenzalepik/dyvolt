@@ -108,4 +108,106 @@ class TextStyles {
     letterSpacing: 0,
     color: AppColors.grey555Color,
   );
+
+  static const TextStyle textLabelInput = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 12.0,
+    fontWeight: FontWeight.w400,
+    height:
+        1.33, // Line height dalam Flutter dinyatakan sebagai faktor dari ukuran font
+    letterSpacing: 0.0,
+    color: AppColors.grey555Color,
+  );
+
+  static const TextStyle textInput = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 12.0,
+    fontWeight: FontWeight.w400,
+    height: 1.25,
+    letterSpacing: 0.0,
+  );
+
+  static const TextStyle textButton = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 18.0,
+    fontWeight: FontWeight.w500,
+    height: 24.0 / 18.0,
+    letterSpacing: 0.0,
+    color: AppColors.whiteColor,
+  );
+
+  static const TextStyle textButtonWhite = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 18.0,
+    fontWeight: FontWeight.w500,
+    height: 24.0 / 18.0,
+    letterSpacing: 0.0,
+    color: AppColors.primaryColor,
+  );
+
+  static const TextStyle textButtonWhiteOutline = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 18.0,
+    fontWeight: FontWeight.w500,
+    height: 24.0 / 18.0,
+    letterSpacing: 0.0,
+    color: AppColors.blackColor,
+  );
+
+  static const TextStyle textLabel = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 14.0,
+    fontWeight: FontWeight.w400,
+    height: 22.0 / 14.0,
+    letterSpacing: 0.0,
+  );
+
+  static const TextStyle textLabelDark = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    height: 16 / 14,
+    letterSpacing: 0,
+  );
+
+  static const TextStyle textLabelSmall = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    height: 16 / 12,
+    letterSpacing: 0,
+  );
+
+  static const TextStyle textLabelVerySmall = TextStyle(
+      fontFamily: 'Inter',
+      fontSize: 10,
+      fontWeight: FontWeight.w500,
+      letterSpacing: 0,
+      color: AppColors.grey555Color);
+
+  static const TextStyle text16px600 = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    height: 24 / 16,
+    letterSpacing: 0,
+    color: AppColors.blackColor,
+  );
+
+  static const TextStyle text16px500 = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    height: 24 / 16,
+    letterSpacing: 0,
+    color: AppColors.blackColor,
+  );
+
+  static const TextStyle text24px700 = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 24.0,
+    fontWeight: FontWeight.w700,
+    letterSpacing: 0.0,
+    color: AppColors.blackColor,
+  );
 }

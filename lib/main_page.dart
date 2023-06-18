@@ -1,3 +1,4 @@
+import 'package:dyvolt/pages/profile_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
 // import 'package:dyvolt/utils/fonts.dart';
@@ -56,7 +57,6 @@ class _MainPageState extends State<MainPage> {
       ),
     )
   ];
-  
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +76,7 @@ class _MainPageState extends State<MainPage> {
               height: 96,
               child: DrawerHeader(
                 decoration: const BoxDecoration(
-                  color: Colors.white,
+                  // color: Colors.white,
                   border: null,
                 ),
                 child: Column(
@@ -88,39 +88,52 @@ class _MainPageState extends State<MainPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Container(
-                          width: 24,
-                          height: 24,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Image.asset(
-                              'path_to_image',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        const Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: 18,
-                              child: Text(
-                                'Hello!',
-                                style: TextStyles.textHelloDrawer,
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ProfilePage()),
+                              );
+                            },
+                            child: Container(
+                                child: Row(children: [
+                              Container(
+                                width: 24,
+                                height: 24,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(12),
+                                  child: Image.asset(
+                                    'path_to_image',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 24,
-                              child: Text(
-                                'Joko Tingkir',
-                                style: TextStyles.textMenuDrawer,
-                              ),
-                            ),
-                          ],
-                        )
+                              const SizedBox(width: 12),
+                              const Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    height: 18,
+                                    child: Text(
+                                      'Hello!',
+                                      style: TextStyles.textHelloDrawer,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 24,
+                                    child: Text(
+                                      'Joko Tingkir',
+                                      style: TextStyles.textMenuDrawer,
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ]))),
                       ],
                     ),
+
                     const SizedBox(height: 20),
                     // Divider(
                     //   color: AppColors.borderDrawerColor, // Warna garis pemisah

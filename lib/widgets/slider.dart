@@ -79,12 +79,12 @@ class _BannerSliderState extends State<BannerSlider> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   boxShadow: const [
-                    BoxShadow(
-                      color: Color(0x591B1B0D),
-                      offset: Offset(0, 5),
-                      blurRadius: 10,
-                      spreadRadius: 0,
-                    ),
+                    // BoxShadow(
+                    //   color: Color(0x591B1B0D),
+                    //   offset: Offset(0, 5),
+                    //   blurRadius: 10,
+                    //   spreadRadius: 0,
+                    // ),
                   ],
                 ),
                 child: AspectRatio(
