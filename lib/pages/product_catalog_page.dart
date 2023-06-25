@@ -1,4 +1,5 @@
 import 'package:dyvolt/widgets/card_product.dart';
+import 'package:dyvolt/widgets/components/form_components.dart';
 import 'package:flutter/material.dart';
 import 'package:dyvolt/widgets/slider.dart';
 import 'package:dyvolt/utils/icons.dart';
@@ -6,8 +7,8 @@ import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/widgets/card_product_small.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
+class ProductCatalogPage extends StatelessWidget {
+  ProductCatalogPage({super.key});
 
   final List<ProductPromo> productsPromo = [
     ProductPromo(
@@ -84,140 +85,114 @@ class HomePage extends StatelessWidget {
     return itemWidth / itemHeight;
   }
 
+  final TextEditingController _textEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor:
             AppColors.backgroundColor, // Ganti dengan warna yang diinginkan
         appBar: AppBar(
-          // leading: IconButton(
-          //   icon: const Icon(Icons.arrow_back),
-          //   onPressed: () {
-          //     Navigator.of(context).pop();
-          //   },
-          // ),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
           title: const Text(
-            'Dyvolt EV Shop',
+            'Product Catalog',
             style: TextStyles.textAppBar,
           ),
           centerTitle: true,
           backgroundColor: Colors.transparent,
           elevation: 0,
-          actions: [
-            IconButton(
-                icon: const CustomIcon(
-                    iconName: 'icon_menu',
-                    size: 24.0,
-                    color: AppColors.blackColor),
-                onPressed: () {
-                  Scaffold.of(context).openEndDrawer();
-                }),
-          ],
+          // actions: [
+          //   IconButton(
+          //       icon: const CustomIcon(
+          //           iconName: 'icon_menu',
+          //           size: 24.0,
+          //           color: AppColors.blackColor),
+          //       onPressed: () {
+          //         Scaffold.of(context).openEndDrawer();
+          //       }),
+          // ],
         ),
         body: SingleChildScrollView(
           // physics: NeverScrollableScrollPhysics(),
           child: Column(children: [
+            SizedBox(
+              height: 24,
+            ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              width: double.infinity,
-              child: BannerHome(),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Column(
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.only(left: 16),
-                        width: double.infinity, // lebar sesuai dengan parent
-                        height: 24, // tinggi container
-                        // color: Colors.blue,
-                        child: const Text(
-                          'Products Promo',
-                          textAlign: TextAlign.left,
-                          style: TextStyles.textTitleSection,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.only(right: 16),
-                      height: 24, // tinggi container
-                      // color: Colors.green, Align(
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'See all',
-                        textAlign: TextAlign.right,
-                        style: TextStyles.textLinkSmall,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                SizedBox(
-                  height: 112,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: productsPromo.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
-                        child: ProductPromoCard(
-                          imagePromoUrl: productsPromo[index].imagePromoUrl,
-                          productPromoName:
-                              productsPromo[index].productPromoName,
-                          productPromoDescription:
-                              productsPromo[index].productPromoDescription,
-                          productPromoPrice:
-                              productsPromo[index].productPromoPrice,
-                        ),
-                      );
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                children: [
+                  IconInputCustom(
+                    label: '',
+                    hintText: 'Searching product here...',
+                    onChanged: (value) {
+                      // Handle name input
                     },
+                    iconNameCustom: 'icon_profile',
+                    sizeCustom: 24,
+                    colorCustom: AppColors.grey555Color,
+                    boxShadow: BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 4,
+                      offset: Offset(0, 2),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 8)
-              ],
+                ],
+              ),
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromRGBO(89, 27, 27, 0.05),
+                    offset: Offset(0, 5),
+                    blurRadius: 10,
+                  ),
+                ],
+              ),
             ),
             const SizedBox(
-              height: 8,
+              height: 24,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.only(left: 16),
-                        width: double.infinity, // lebar sesuai dengan parent
-                        height: 24, // tinggi container
-                        // color: Colors.blue,
-                        child: const Text(
-                          'Products Catalog',
-                          textAlign: TextAlign.left,
-                          style: TextStyles.textTitleSection,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.only(right: 16),
-                      height: 24, // tinggi container
-                      // color: Colors.green, Align(
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'See all',
-                        textAlign: TextAlign.right,
-                        style: TextStyles.textLinkSmall,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
+                // Row(
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     Expanded(
+                //       child: Container(
+                //         padding: const EdgeInsets.only(left: 16),
+                //         width: double.infinity, // lebar sesuai dengan parent
+                //         height: 24, // tinggi container
+                //         // color: Colors.blue,
+                //         child: const Text(
+                //           'Products Catalog',
+                //           textAlign: TextAlign.left,
+                //           style: TextStyles.textTitleSection,
+                //         ),
+                //       ),
+                //     ),
+                //     Container(
+                //       padding: const EdgeInsets.only(right: 16),
+                //       height: 24, // tinggi container
+                //       // color: Colors.green, Align(
+                //       alignment: Alignment.center,
+                //       child: const Text(
+                //         'See all',
+                //         textAlign: TextAlign.right,
+                //         style: TextStyles.textLinkSmall,
+                //       ),
+                //     ),
+                //   ],
+                // ),
+                // const SizedBox(height: 8),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   width: double.infinity,

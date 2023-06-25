@@ -1,4 +1,5 @@
-import 'package:dyvolt/pages/profile_page.dart';
+import 'package:dyvolt/pages/my_account_page.dart';
+import 'package:dyvolt/pages/personal_info_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
 // import 'package:dyvolt/utils/fonts.dart';
@@ -48,13 +49,7 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
     ),
-    const Center(
-      child: Text(
-        'Profile',
-        style: TextStyle(
-          fontSize: 40,
-        ),
-      ),
+    const MyAccountPage(
     )
   ];
 

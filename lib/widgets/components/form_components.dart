@@ -4,6 +4,7 @@ import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/icons.dart';
 import 'package:dyvolt/utils/shadows.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 
@@ -877,6 +878,42 @@ class ButtonLarge extends StatelessWidget {
   }
 }
 
+class ButtonLarge2 extends StatelessWidget {
+  final String text;
+  final VoidCallback? onPressed;
+
+  const ButtonLarge2({
+    required this.text,
+    this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ButtonStyle(
+        fixedSize: MaterialStateProperty.all<Size>(
+          Size(double.infinity, 50),
+        ),
+      ).merge(
+        ElevatedButton.styleFrom(
+          elevation: 0,
+          padding: EdgeInsets.all(14.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          primary: AppColors.primaryColor,
+          minimumSize: Size(double.infinity, 50.0),
+        ),
+      ),
+      child: Container(
+        height: 32,
+        child: Center(child: Text(text, style: TextStyles.textButton)),
+      ),
+    );
+  }
+}
+
 class ButtonWhiteLarge extends StatelessWidget {
   final String text;
   final VoidCallback? onPressed;
@@ -922,6 +959,9 @@ class ButtonWhiteOutlineLarge extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         elevation: 0,
         padding: EdgeInsets.all(16.0),
+        surfaceTintColor: AppColors.whiteColor,
+        backgroundColor: AppColors.whiteColor,
+        foregroundColor: AppColors.whiteColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
           side: BorderSide(
@@ -941,6 +981,82 @@ class ButtonWhiteOutlineLarge extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class ButtonOutlineLarge extends StatelessWidget {
+  final String text;
+  final VoidCallback? onPressed;
+  final Color color;
+  final Color borderColor;
+  final Color textColor;
+
+  const ButtonOutlineLarge(
+      {required this.text,
+      this.onPressed,
+      this.color = AppColors.transparent,
+      this.borderColor = AppColors.blackColor,
+      this.textColor = AppColors.blackColor});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        elevation: 0,
+        padding: EdgeInsets.all(16.0),
+        surfaceTintColor: color,
+        backgroundColor: color,
+        foregroundColor: color,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+          side: BorderSide(
+            color: borderColor,
+            width: 1.0,
+          ),
+        ),
+        primary: color,
+        minimumSize: Size(double.infinity, 48.0),
+      ),
+      child: Container(
+        height: 32,
+        child: Center(
+          child: Text(
+            text,
+            style: TextStyles.textButtonWhiteOutline,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ButtonYoutube extends StatelessWidget {
+  final String text;
+  final VoidCallback? onPressed;
+
+  const ButtonYoutube({
+    required this.text,
+    this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        elevation: 0,
+        padding: EdgeInsets.all(14.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        primary: AppColors.youtubeColor,
+        minimumSize: Size(double.infinity, 48.0),
+      ),
+      child: Container(
+          height: 32,
+          child: Center(child: Text(text, style: TextStyles.textButton))),
     );
   }
 }
@@ -1198,7 +1314,6 @@ class CardTicket extends StatelessWidget {
   }
 }
 
-
 class BarcodeScreen extends StatelessWidget {
   final String barcodeData;
 
@@ -1206,28 +1321,335 @@ class BarcodeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Barcode Example'),
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      // Tampilkan barcode dengan barcodeData
+      BarcodeWidget(
+        data: barcodeData,
+        barcode: Barcode.code128(),
+        color: Colors.black,
+        width: double.infinity,
+        height: 42,
+        drawText: false,
       ),
-      body: Center(
-        child: Column(
-          children: [
-            // Tampilkan barcode dengan barcodeData
-            BarcodeWidget(
-              data: barcodeData,
-              barcode: Barcode.code128(),
-              color: Colors.black,
-              width: 200,
-              height: 100,
-              style: TextStyle(),
-              drawText: false,
-            ),
-            // Tampilkan data string di bawah barcode
-            Text(barcodeData),
-          ],
+      SizedBox(height: 6),
+      // Tampilkan data string di bawah barcode
+      Text(
+        barcodeData,
+        style: TextStyles.textLabelSmall,
+      ),
+    ]);
+  }
+}
+
+class CardNumberLabelInput extends StatefulWidget {
+  final String label;
+  final String hintText;
+  final ValueChanged<String>? onChanged;
+  final TextStyle? labelStyle;
+
+  const CardNumberLabelInput({
+    required this.label,
+    required this.hintText,
+    this.onChanged,
+    this.labelStyle,
+  });
+
+  @override
+  _CardNumberLabelInputState createState() => _CardNumberLabelInputState();
+}
+
+class _CardNumberLabelInputState extends State<CardNumberLabelInput> {
+  late TextEditingController _textEditingController;
+
+  @override
+  void initState() {
+    super.initState();
+    _textEditingController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _textEditingController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          widget.label,
+          style: widget.labelStyle ??
+              TextStyle(
+                fontFamily: 'Inter',
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
         ),
+        SizedBox(height: 8.0),
+        TextField(
+          controller: _textEditingController,
+          onChanged: widget.onChanged,
+          decoration: InputDecoration(
+              border: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                color: AppColors.borderDrawerColor,
+                width: 1.0,
+              )),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: AppColors.primaryColor,
+                  width: 1.0,
+                ),
+                // borderRadius: BorderRadius.circular(8.0),
+              ),
+              hintText: widget.hintText,
+              contentPadding: EdgeInsets.symmetric(
+                vertical: 0.0,
+                horizontal: 4.0,
+              ),
+              labelStyle: TextStyles.textLabelDark),
+          style: TextStyles.text16px500,
+        )
+      ],
+    );
+  }
+}
+
+class TextLabelUnderlineInput extends StatefulWidget {
+  final String label;
+  final String hintText;
+  final ValueChanged<String>? onChanged;
+  final TextStyle? labelStyle;
+
+  const TextLabelUnderlineInput({
+    required this.label,
+    required this.hintText,
+    this.onChanged,
+    this.labelStyle,
+  });
+
+  @override
+  _TextLabelUnderlineInputState createState() =>
+      _TextLabelUnderlineInputState();
+}
+
+class _TextLabelUnderlineInputState extends State<TextLabelUnderlineInput> {
+  late TextEditingController _textEditingController;
+
+  @override
+  void initState() {
+    super.initState();
+    _textEditingController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _textEditingController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          widget.label,
+          style: widget.labelStyle ??
+              TextStyle(
+                fontFamily: 'Inter',
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+        ),
+        SizedBox(height: 8.0),
+        TextField(
+          controller: _textEditingController,
+          onChanged: widget.onChanged,
+          decoration: InputDecoration(
+            border: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColors.borderDrawerColor,
+                width: 1.0,
+              ),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColors.primaryColor,
+                width: 1.0,
+              ),
+            ),
+            hintText: widget.hintText,
+            contentPadding: EdgeInsets.symmetric(
+              vertical: 0.0,
+              horizontal: 4.0,
+            ),
+            labelStyle: TextStyles.textLabelDark,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+          ),
+          style: TextStyles.text16px500,
+        ),
+      ],
+    );
+  }
+}
+
+class CVVLabelUnderlineInput extends StatefulWidget {
+  final String label;
+  final String hintText;
+  final ValueChanged<String>? onChanged;
+  final TextStyle? labelStyle;
+
+  const CVVLabelUnderlineInput({
+    required this.label,
+    required this.hintText,
+    this.onChanged,
+    this.labelStyle,
+  });
+
+  @override
+  _CVVLabelUnderlineInputState createState() => _CVVLabelUnderlineInputState();
+}
+
+class _CVVLabelUnderlineInputState extends State<CVVLabelUnderlineInput> {
+  late TextEditingController _textEditingController;
+
+  @override
+  void initState() {
+    super.initState();
+    _textEditingController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _textEditingController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          widget.label,
+          style: widget.labelStyle ??
+              TextStyle(
+                fontFamily: 'Inter',
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+        ),
+        SizedBox(height: 8.0),
+        TextField(
+          controller: _textEditingController,
+          onChanged: widget.onChanged,
+          inputFormatters: [
+            FilteringTextInputFormatter.digitsOnly,
+            LengthLimitingTextInputFormatter(3),
+          ],
+          decoration: InputDecoration(
+            border: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColors.borderDrawerColor,
+                width: 1.0,
+              ),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColors.primaryColor,
+                width: 1.0,
+              ),
+            ),
+            hintText: widget.hintText,
+            contentPadding: EdgeInsets.symmetric(
+              vertical: 0.0,
+              horizontal: 4.0,
+            ),
+            labelStyle: TextStyles.textLabelDark,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+          ),
+          style: TextStyles.text16px500,
+        ),
+      ],
+    );
+  }
+}
+//
+//
+//
+
+class IconInputCustom extends StatelessWidget {
+  final String label;
+  final String hintText;
+  final ValueChanged<String>? onChanged;
+  final BoxShadow boxShadow;
+  final String iconNameCustom;
+  final double sizeCustom;
+  final Color? colorCustom;
+  final Color? backgroundColor;
+
+  // final BoxShadow boxShadow;
+
+  IconInputCustom({
+    required this.label,
+    required this.hintText,
+    this.onChanged,
+    required this.boxShadow,
+    this.iconNameCustom = '',
+    this.sizeCustom = 24,
+    this.colorCustom = Colors.black,
+    this.backgroundColor = AppColors.whiteColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      style: TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
       ),
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        labelText: label,
+        hintText: hintText,
+        labelStyle: TextStyle(
+          fontFamily: 'Inter',
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+          color: Color(0xFFB2B2B2),
+        ),
+        prefixIcon: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CustomIcon(
+              iconName: iconNameCustom,
+              size: sizeCustom,
+              color: colorCustom,
+            )),
+        border: OutlineInputBorder(),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.transparent,
+            width: 0,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.transparent,
+            width: 0,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        filled: true,
+        fillColor: backgroundColor,
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        floatingLabelAlignment: FloatingLabelAlignment.start,
+      ),
+      onChanged: onChanged,
     );
   }
 }

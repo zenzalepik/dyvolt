@@ -12,12 +12,23 @@ class AppColors {
   static const Color grey777Color = Color(0xFF777777);
   static const Color grey999Color = Color(0xFF999999);
   static const Color grey7c7270Color = Color(0xFF7C7270);
+  static const Color grey70Color = Color(0xFF707070);
   static const Color greyIconNavColor = Color(0xFFFAD3CA);
   static const Color f6Color = Color(0xFFF6F6F6);
   static const Color d9Color = Color(0xFFD9D9D9);
+  static const Color bcColor = Color(0xFFBCBCBC);
   static const Color e345Color = Color(0xFFE3E4E5);
   static const Color seatWhite = Color(0xFFF5F8FD);
   static const Color seatGreyLight = Color(0xFFD9D9D9);
   static const Color seatGreyDark = Color(0xFF7C7270);
   static const Color seatBlue = Color(0xFF00AEEF);
+  static const Color transparent = Color(0x00000000);
+  static const Color warningColor = Color(0xFFFBBF24);
+  static const Color youtubeColor = Color(0xFFD33434);
+  //
+  //
+  //
+  static const Color labelInfoColor = Color(0xFFF2F9FE);
+  static const Color labelSuccessColor = Color(0xFFF2FCF9);
+  static const Color labelErrorColor = Color(0xFFFFF5F7);
 }

@@ -1,0 +1,33 @@
+import 'package:dyvolt/widgets/sheet_track_order.dart';
+import 'package:flutter/material.dart';
+
+
+
+class Sheet extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Bottom Sheet Example'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: Text('Show Bottom Sheet'),
+          onPressed: () {
+            showModalBottomSheet(
+              context: context,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(
+                  top: Radius.circular(32.0),
+                ),
+              ),
+              builder: (BuildContext context) {
+                return SheetPopUp();
+              },
+            );
+          },
+        ),
+      ),
+    );
+  }
+}

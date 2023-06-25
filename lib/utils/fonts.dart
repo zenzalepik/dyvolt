@@ -3,12 +3,12 @@ import 'colors.dart';
 
 class TextStyles {
   static const TextStyle textAppBar = TextStyle(
-    fontFamily: 'Inter',
-    fontSize: 20,
-    fontWeight: FontWeight.w500,
-    height: 1.6, // line-height
-    letterSpacing: 0,
-  );
+      fontFamily: 'Inter',
+      fontSize: 20,
+      fontWeight: FontWeight.w500,
+      height: 1.6, // line-height
+      letterSpacing: 0,
+      color: AppColors.blackColor);
 
   static const TextStyle textProductPromo = TextStyle(
     fontFamily: 'Inter', // Font family
@@ -45,6 +45,30 @@ class TextStyles {
     height: 1.33,
     letterSpacing: 0,
   );
+
+  static const TextStyle textTitleDetailProduct = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 20,
+    fontWeight: FontWeight.w300,
+    letterSpacing: 0.005,
+    color: AppColors.blackColor,
+  );
+
+  static const TextStyle textPriceDetailProduct = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 24,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.005,
+    color: AppColors.blackColor,
+  );
+
+  static const TextStyle textDetailProductDescription = TextStyle(
+      fontFamily: 'Inter',
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+      height: 16 / 14,
+      letterSpacing: 0,
+      color: AppColors.grey555Color);
 
   static const TextStyle textProduct = TextStyle(
     fontFamily: 'Inter',
@@ -119,6 +143,16 @@ class TextStyles {
     color: AppColors.grey555Color,
   );
 
+  static const TextStyle textLabelInputBlack = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 12.0,
+    fontWeight: FontWeight.w400,
+    height:
+        1.33, // Line height dalam Flutter dinyatakan sebagai faktor dari ukuran font
+    letterSpacing: 0.0,
+    color: AppColors.blackColor,
+  );
+
   static const TextStyle textInput = TextStyle(
     fontFamily: 'Inter',
     fontSize: 12.0,
@@ -160,15 +194,16 @@ class TextStyles {
     fontWeight: FontWeight.w400,
     height: 22.0 / 14.0,
     letterSpacing: 0.0,
+    // color: AppColors.grey555Color,
   );
 
   static const TextStyle textLabelDark = TextStyle(
-    fontFamily: 'Inter',
-    fontSize: 14,
-    fontWeight: FontWeight.w500,
-    height: 16 / 14,
-    letterSpacing: 0,
-  );
+      fontFamily: 'Inter',
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+      height: 16 / 14,
+      letterSpacing: 0,
+      color: AppColors.blackColor);
 
   static const TextStyle textLabelSmall = TextStyle(
     fontFamily: 'Inter',
@@ -209,5 +244,74 @@ class TextStyles {
     fontWeight: FontWeight.w700,
     letterSpacing: 0.0,
     color: AppColors.blackColor,
+  );
+
+  static const TextStyle text14px600 = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    // letterSpacing: 0,005,
+    color: AppColors.blackColor,
+  );
+
+    static const TextStyle text14px600Blue = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    // letterSpacing: 0,005,
+    color: AppColors.primaryColor,
+  );
+
+  static const TextStyle text14px600White = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    // letterSpacing: 0,005,
+    color: AppColors.whiteColor,
+  );
+
+  static const TextStyle text20px600Black = TextStyle(
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w600,
+    fontSize: 20,
+  );
+
+  static const TextStyle text12px300Grey555 = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 12,
+    fontWeight: FontWeight.w300,
+    height: 1.25,
+    letterSpacing: 0,
+    color: AppColors.blackColor,
+  );
+
+  static const TextStyle text8px400GreyBc = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 12.0,
+    fontWeight: FontWeight.w400,
+    height: 1.25,
+    letterSpacing: 0.0,
+    color: AppColors.bcColor,
+  );
+
+  static const TextStyle text10px300Grey999 = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 10,
+    fontWeight: FontWeight.w300,
+    color: AppColors.grey999Color,
+  );
+
+  static const TextStyle text12px500Dark = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    color: AppColors.blackColor,
+  );
+
+    static const TextStyle text12px500Grey70 = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    color: AppColors.grey70Color,
   );
 }

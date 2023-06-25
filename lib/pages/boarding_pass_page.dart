@@ -50,62 +50,51 @@ class BoardingPassPage extends StatelessWidget {
                     height: 24,
                   ),
                   Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 16),
+                    margin: const EdgeInsets.symmetric(horizontal: 32),
                     padding: const EdgeInsets.all(16.0),
-                    decoration: BoxDecoration(
-                      color: AppColors.whiteColor,
-                      borderRadius: BorderRadius.circular(16),
-                      boxShadow: const [Shadows.boxShadow1],
-                    ),
+                    // decoration: BoxDecoration(
+                    //   color: AppColors.whiteColor,
+                    //   borderRadius: BorderRadius.circular(16),
+                    //   boxShadow: const [Shadows.boxShadow1],
+                    // ),
                     child: Column(
                       children: [
-                        Center(
-                          child: Container(
-                            padding: EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: AppColors.f6Color,
-                                width: 1.0,
-                              ),
-                            ),
-                            height: 64,
-                            child: AspectRatio(
-                              aspectRatio: 1 / 1,
-                              child: Image.asset(
-                                'asset/images/flight/logos/',
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 16),
-                        Divider(
-                          color: AppColors.borderDrawerColor,
-                          height: 1,
-                          thickness: 1,
-                        ),
-                        SizedBox(height: 16),
                         Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
                               width: 48,
-                              height: 32,
-                              padding: const EdgeInsets.all(2),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(4),
-                                  color: AppColors.whiteColor,
-                                  border: Border.all(
-                                    color: AppColors.f6Color,
-                                    width: 1,
-                                  )),
-                              child: Image.asset(''),
-                            ),
-                            SizedBox(width: 8),
-                            SizedBox(
-                              child: Text(
-                                'IN 230',
-                                style: TextStyles.textLabelDark,
+                              height: 48,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(24),
+                                child: Image.asset(
+                                  'path_to_image',
+                                  fit: BoxFit.cover,
+                                ),
                               ),
+                            ),
+                            const SizedBox(width: 12),
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  height: 24,
+                                  child: Text(
+                                    'Joko Tingkir',
+                                    style: TextStyles.text16px600,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 18,
+                                  child: Text(
+                                    'Pessanger',
+                                    style: TextStyles.textLabel,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: 8,
                             ),
                             Flexible(
                               child: Container(
@@ -113,12 +102,25 @@ class BoardingPassPage extends StatelessWidget {
                                 // Isi konten di sini
                               ),
                             ),
-                            Text('01 hr 40min',
-                                style: TextStyles.textLabelSmall)
+                            SizedBox(
+                              width: 64,
+                              child: Image.asset(
+                                'assets/images/flight/logos/img_logo_indigo.png',
+                                fit: BoxFit.fitWidth,
+                              ),
+                            ),
                           ],
+                        ),
+                        SizedBox(height: 32),
+                        Divider(
+                          color: AppColors.borderDrawerColor,
+                          height: 1,
+                          thickness: 1,
                         ),
                         SizedBox(height: 20),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
                               width: 68,
@@ -140,13 +142,6 @@ class BoardingPassPage extends StatelessWidget {
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyles.text16px500,
                                   ),
-                                  Text(
-                                    'Indira Gandhi International Airport',
-                                    // maxLines: 3,
-                                    maxLines: 3,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyles.textLabelVerySmall,
-                                  ),
                                 ],
                               ),
                             ),
@@ -161,7 +156,8 @@ class BoardingPassPage extends StatelessWidget {
                               'assets/images/img_plane_ticket.svg', // Ubah path dengan lokasi file SVG Anda
                               // width:
                               //     200, // Sesuaikan ukuran gambar sesuai kebutuhan Anda
-                              height: 36,
+                              fit: BoxFit.fitWidth,
+                              height: 28,
                             ),
                             SizedBox(width: 8),
                             Flexible(
@@ -190,6 +186,44 @@ class BoardingPassPage extends StatelessWidget {
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyles.text16px500,
                                   ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              width: 68,
+                              // color: Colors.green,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Indira Gandhi International Airport',
+                                    // maxLines: 3,
+                                    maxLines: 3,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyles.textLabelVerySmall,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Flexible(
+                              child: Container(
+                                color: Colors.red,
+                                // Isi konten di sini
+                              ),
+                            ),
+                            Container(
+                              width: 68,
+                              // color: Colors.green,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
                                   Text(
                                     'Subhash Chandra Bose International Airport',
                                     // maxLines: 3,
@@ -229,7 +263,7 @@ class BoardingPassPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 16),
+                        SizedBox(height: 32),
                         Divider(
                           color: AppColors.borderDrawerColor,
                           height: 1,
@@ -336,27 +370,14 @@ class BoardingPassPage extends StatelessWidget {
                           thickness: 1,
                         ),
                         SizedBox(height: 20),
-                        final
                         Row(
                           children: [
                             Expanded(
-                              child: BarcodeWidget(
-                                data: 'Ini Barcode',
-                                barcode: Barcode.code128(),
-                                color: Colors.black,
-                                width: 200,
-                                height: 100,
-                                style: TextStyle(),
-                                drawText: false,
-                              ),
+                              child: BarcodeScreen(
+                                  barcodeData: 'INDS 453210907135'),
                             )
                           ],
                         ),
-                        Row(
-                          children: [
-                            Text('data')
-                          ],
-                        )
                         SizedBox(height: 24),
                         Row(
                           children: [
@@ -376,7 +397,7 @@ class BoardingPassPage extends StatelessWidget {
                             // ),
                             Expanded(
                               child: ButtonLarge(
-                                  text: 'Modify',
+                                  text: 'Download',
                                   onPressed: () {
                                     // Logika yang ingin Anda jalankan saat tombol ditekan
                                     // Navigator.pushReplacement(
@@ -392,16 +413,32 @@ class BoardingPassPage extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 24),
+                    child: SizedBox(
+                        // decoration: BoxDecoration(
+                        //   boxShadow: [
+                        //     BoxShadow(
+                        //       color: Color(0xFF591B1B0D),
+                        //       offset: Offset(0, 5),
+                        //       blurRadius: 10,
+                        //       spreadRadius: 0,
+                        //     ),
+                        //   ],
+                        //   borderRadius: BorderRadius.circular(8),
+                        // ),
+                        child: TextLink16(
+                      text: 'Book another flight',
+                      onTap: () {},
+                    )),
                   ),
                 ],
               ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 24),
-                  ),
-                ],
-              ),
+              // Column(
+              //   children: [
+              //     Padding(
+              //       padding: const EdgeInsets.symmetric(vertical: 24),
+              //     ),
+              //   ],
+              // ),
             ],
           ),
         ),
