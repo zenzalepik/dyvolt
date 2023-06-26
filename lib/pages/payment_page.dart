@@ -1,5 +1,6 @@
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:dyvolt/main_page.dart';
+import 'package:dyvolt/pages/boarding_pass_page.dart';
 import 'package:dyvolt/pages/login_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
@@ -376,7 +377,9 @@ class PaymentPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 40,),
+                        SizedBox(
+                          height: 40,
+                        ),
                         Row(
                           children: [
                             // Expanded(
@@ -398,9 +401,12 @@ class PaymentPage extends StatelessWidget {
                                   text: 'Confirm',
                                   onPressed: () {
                                     // Logika yang ingin Anda jalankan saat tombol ditekan
-                                    // Navigator.pushReplacement(
-                                    //   context,
-                                    //   MaterialPageRoute(builder: (context) => MainPage()),
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              BoardingPassPage()),
+                                    );
                                     // );
                                   }),
                             ),
@@ -410,11 +416,14 @@ class PaymentPage extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(
-                        32, 8, 32, 24),
+                    padding: const EdgeInsets.fromLTRB(32, 8, 32, 24),
                     child: ButtonOutlineLarge(
                       text: 'Cancel',
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(
+                          context,
+                        );
+                      },
                     ),
                   ),
                 ],

@@ -1,3 +1,4 @@
+import 'package:dyvolt/pages/my_cart_page.dart';
 import 'package:dyvolt/utils/icons.dart';
 import 'package:dyvolt/widgets/card_booking.dart';
 import 'package:flutter/material.dart';
@@ -81,7 +82,18 @@ class MyAccountPage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.transparent,
           elevation: 0,
-          actions: [
+           actions: [
+            IconButton(
+                icon: const CustomIcon(
+                    iconName: 'icon_cart',
+                    size: 24.0,
+                    color: AppColors.blackColor),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyCartPage()),
+                  );
+                }),
             IconButton(
                 icon: const CustomIcon(
                     iconName: 'icon_menu',

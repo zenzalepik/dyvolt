@@ -1,3 +1,5 @@
+import 'package:dyvolt/pages/detail_product_catalog.dart';
+import 'package:dyvolt/pages/detail_product_page.dart';
 import 'package:dyvolt/widgets/card_product.dart';
 import 'package:dyvolt/widgets/components/form_components.dart';
 import 'package:flutter/material.dart';
@@ -45,31 +47,31 @@ class ProductCatalogPage extends StatelessWidget {
 
   final List<Product> products = [
     Product(
-      imageUrl: 'https://i.pravatar.cc/150?img=1',
+      imageUrl: 'assets/images/products/1.jpg',
       productName: 'Paket Kit Konversi Matic R14 PNP 1',
       // productDescription: '500WATT 72VOLT 1',
       productPrice: 999.999,
     ),
     Product(
-      imageUrl: 'https://i.pravatar.cc/150?img=1',
+      imageUrl: 'assets/images/products/1.jpg',
       productName: 'Paket Kit Konversi Matic R14 PNP',
       // productDescription: '500WATT 72VOLT 2',
       productPrice: 999.999,
     ),
     Product(
-      imageUrl: 'https://i.pravatar.cc/150?img=1',
+      imageUrl: 'assets/images/products/1.jpg',
       productName: 'Paket Kit Konversi Matic R14 PNP 2',
       // productDescription: '500WATT 72VOLT 3',
       productPrice: 999.999,
     ),
     Product(
-      imageUrl: 'https://i.pravatar.cc/150?img=1',
+      imageUrl: 'assets/images/products/1.jpg',
       productName: 'Paket Kit Konversi Matic R14 PNP 4',
       // productDescription: '500WATT 72VOLT 4',
       productPrice: 999.999,
     ),
     Product(
-      imageUrl: 'https://i.pravatar.cc/150?img=1',
+      imageUrl: 'assets/images/products/1.jpg',
       productName: 'Paket Kit Konversi Matic R14 PNP 5',
       // productDescription: '500WATT 72VOLT 5',
       productPrice: 999.999,
@@ -133,7 +135,7 @@ class ProductCatalogPage extends StatelessWidget {
                     onChanged: (value) {
                       // Handle name input
                     },
-                    iconNameCustom: 'icon_profile',
+                    iconNameCustom: 'icon_search',
                     sizeCustom: 24,
                     colorCustom: AppColors.grey555Color,
                     boxShadow: BoxShadow(
@@ -208,10 +210,16 @@ class ProductCatalogPage extends StatelessWidget {
                     ),
                     itemCount: 5,
                     itemBuilder: (BuildContext context, int index) {
-                      return ProductCard(
-                        imageUrl: products[index].imageUrl,
-                        productName: products[index].productName,
-                        productPrice: products[index].productPrice,
+                      return GestureDetector(
+                        onTap: (){ Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => DetailProductPage()),
+            );},
+                        child: ProductCard(
+                          imageUrl: products[index].imageUrl,
+                          productName: products[index].productName,
+                          productPrice: products[index].productPrice,
+                        ),
                       );
                     },
                   ),

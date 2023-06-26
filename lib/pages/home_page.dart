@@ -1,3 +1,8 @@
+import 'package:dyvolt/pages/detail_product_catalog.dart';
+import 'package:dyvolt/pages/detail_product_page.dart';
+import 'package:dyvolt/pages/my_cart_page.dart';
+import 'package:dyvolt/pages/product_catalog_page.dart';
+import 'package:dyvolt/pages/search_result_page.dart';
 import 'package:dyvolt/widgets/card_product.dart';
 import 'package:flutter/material.dart';
 import 'package:dyvolt/widgets/slider.dart';
@@ -11,31 +16,31 @@ class HomePage extends StatelessWidget {
 
   final List<ProductPromo> productsPromo = [
     ProductPromo(
-      imagePromoUrl: 'https://i.pravatar.cc/150?img=1',
+      imagePromoUrl: 'assets/images/products/1.jpg',
       productPromoName: 'MID DRIVE MOTOR 1',
       productPromoDescription: '500WATT 72VOLT 1',
       productPromoPrice: 999.999,
     ),
     ProductPromo(
-      imagePromoUrl: 'https://i.pravatar.cc/150?img=1',
+      imagePromoUrl: 'assets/images/products/1.jpg',
       productPromoName: 'MID DRIVE MOTOR 2',
       productPromoDescription: '500WATT 72VOLT 2',
       productPromoPrice: 999.999,
     ),
     ProductPromo(
-      imagePromoUrl: 'https://i.pravatar.cc/150?img=1',
+      imagePromoUrl: 'assets/images/products/1.jpg',
       productPromoName: 'MID DRIVE MOTOR 3',
       productPromoDescription: '500WATT 72VOLT 3',
       productPromoPrice: 999.999,
     ),
     ProductPromo(
-      imagePromoUrl: 'https://i.pravatar.cc/150?img=1',
+      imagePromoUrl: 'assets/images/products/1.jpg',
       productPromoName: 'MID DRIVE MOTOR 4',
       productPromoDescription: '500WATT 72VOLT 4',
       productPromoPrice: 999.999,
     ),
     ProductPromo(
-      imagePromoUrl: 'https://i.pravatar.cc/150?img=1',
+      imagePromoUrl: 'assets/images/products/1.jpg',
       productPromoName: 'MID DRIVE MOTOR 5',
       productPromoDescription: '500WATT 72VOLT 5',
       productPromoPrice: 999.999,
@@ -44,31 +49,31 @@ class HomePage extends StatelessWidget {
 
   final List<Product> products = [
     Product(
-      imageUrl: 'https://i.pravatar.cc/150?img=1',
+      imageUrl: 'assets/images/products/1.jpg',
       productName: 'Paket Kit Konversi Matic R14 PNP 1',
       // productDescription: '500WATT 72VOLT 1',
       productPrice: 999.999,
     ),
     Product(
-      imageUrl: 'https://i.pravatar.cc/150?img=1',
+      imageUrl: 'assets/images/products/1.jpg',
       productName: 'Paket Kit Konversi Matic R14 PNP',
       // productDescription: '500WATT 72VOLT 2',
       productPrice: 999.999,
     ),
     Product(
-      imageUrl: 'https://i.pravatar.cc/150?img=1',
+      imageUrl: 'assets/images/products/1.jpg',
       productName: 'Paket Kit Konversi Matic R14 PNP 2',
       // productDescription: '500WATT 72VOLT 3',
       productPrice: 999.999,
     ),
     Product(
-      imageUrl: 'https://i.pravatar.cc/150?img=1',
+      imageUrl: 'assets/images/products/1.jpg',
       productName: 'Paket Kit Konversi Matic R14 PNP 4',
       // productDescription: '500WATT 72VOLT 4',
       productPrice: 999.999,
     ),
     Product(
-      imageUrl: 'https://i.pravatar.cc/150?img=1',
+      imageUrl: 'assets/images/products/1.jpg',
       productName: 'Paket Kit Konversi Matic R14 PNP 5',
       // productDescription: '500WATT 72VOLT 5',
       productPrice: 999.999,
@@ -104,6 +109,17 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
           actions: [
+            IconButton(
+                icon: const CustomIcon(
+                    iconName: 'icon_cart',
+                    size: 24.0,
+                    color: AppColors.blackColor),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyCartPage()),
+                  );
+                }),
             IconButton(
                 icon: const CustomIcon(
                     iconName: 'icon_menu',
@@ -147,10 +163,19 @@ class HomePage extends StatelessWidget {
                       height: 24, // tinggi container
                       // color: Colors.green, Align(
                       alignment: Alignment.center,
-                      child: const Text(
-                        'See all',
-                        textAlign: TextAlign.right,
-                        style: TextStyles.textLinkSmall,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProductCatalogPage()),
+                          );
+                        },
+                        child: const Text(
+                          'See all',
+                          textAlign: TextAlign.right,
+                          style: TextStyles.textLinkSmall,
+                        ),
                       ),
                     ),
                   ],
@@ -164,14 +189,23 @@ class HomePage extends StatelessWidget {
                     itemBuilder: (BuildContext context, int index) {
                       return Padding(
                         padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
-                        child: ProductPromoCard(
-                          imagePromoUrl: productsPromo[index].imagePromoUrl,
-                          productPromoName:
-                              productsPromo[index].productPromoName,
-                          productPromoDescription:
-                              productsPromo[index].productPromoDescription,
-                          productPromoPrice:
-                              productsPromo[index].productPromoPrice,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DetailProductPage()),
+                            );
+                          },
+                          child: ProductPromoCard(
+                            imagePromoUrl: productsPromo[index].imagePromoUrl,
+                            productPromoName:
+                                productsPromo[index].productPromoName,
+                            productPromoDescription:
+                                productsPromo[index].productPromoDescription,
+                            productPromoPrice:
+                                productsPromo[index].productPromoPrice,
+                          ),
                         ),
                       );
                     },
@@ -209,10 +243,19 @@ class HomePage extends StatelessWidget {
                       height: 24, // tinggi container
                       // color: Colors.green, Align(
                       alignment: Alignment.center,
-                      child: const Text(
-                        'See all',
-                        textAlign: TextAlign.right,
-                        style: TextStyles.textLinkSmall,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProductCatalogPage()),
+                          );
+                        },
+                        child: const Text(
+                          'See all',
+                          textAlign: TextAlign.right,
+                          style: TextStyles.textLinkSmall,
+                        ),
                       ),
                     ),
                   ],
@@ -233,10 +276,19 @@ class HomePage extends StatelessWidget {
                     ),
                     itemCount: 5,
                     itemBuilder: (BuildContext context, int index) {
-                      return ProductCard(
-                        imageUrl: products[index].imageUrl,
-                        productName: products[index].productName,
-                        productPrice: products[index].productPrice,
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailProductPage()),
+                          );
+                        },
+                        child: ProductCard(
+                          imageUrl: products[index].imageUrl,
+                          productName: products[index].productName,
+                          productPrice: products[index].productPrice,
+                        ),
                       );
                     },
                   ),

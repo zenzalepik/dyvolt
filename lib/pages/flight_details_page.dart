@@ -1,4 +1,5 @@
 import 'package:dyvolt/main_page.dart';
+import 'package:dyvolt/pages/choose_seat_page.dart';
 import 'package:dyvolt/pages/login_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
@@ -296,11 +297,10 @@ class FlightDetailsPage extends StatelessWidget {
                             child: ButtonWhiteOutlineLarge(
                                 text: 'Cancel',
                                 onPressed: () {
-                                  // Logika yang ingin Anda jalankan saat tombol ditekan
-                                  // Navigator.pushReplacement(
-                                  //   context,
-                                  //   MaterialPageRoute(builder: (context) => MainPage()),
-                                  // );
+                                  
+                                  Navigator.pop(
+                                    context,
+                                  );
                                 }),
                           ),
                           SizedBox(
@@ -311,10 +311,10 @@ class FlightDetailsPage extends StatelessWidget {
                                 text: 'Confirm',
                                 onPressed: () {
                                   // Logika yang ingin Anda jalankan saat tombol ditekan
-                                  // Navigator.pushReplacement(
-                                  //   context,
-                                  //   MaterialPageRoute(builder: (context) => MainPage()),
-                                  // );
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => ChooseSeatPage()),
+                                  );
                                 }),
                           ),
                         ],

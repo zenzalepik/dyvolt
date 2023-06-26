@@ -1,10 +1,6 @@
-import 'package:dyvolt/pages/faq_page.dart';
-import 'package:dyvolt/pages/my_account_page.dart';
-import 'package:dyvolt/pages/payment_info.dart';
-import 'package:dyvolt/pages/personal_info_page.dart';
+
 import 'package:dyvolt/pages/splash_screen_page.dart';
 import 'package:flutter/material.dart';
-import 'main_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: MainPage(),
+      home: SplashScreen(),
     );
   }
 }

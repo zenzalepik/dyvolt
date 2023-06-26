@@ -1,4 +1,6 @@
 import 'package:dyvolt/widgets/card_product.dart';
+import 'package:dyvolt/widgets/cart_list.dart';
+import 'package:dyvolt/widgets/sheet_order_confirmation.dart';
 import 'package:flutter/material.dart';
 import 'package:dyvolt/widgets/slider.dart';
 import 'package:dyvolt/utils/icons.dart';
@@ -6,42 +8,9 @@ import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/widgets/card_product_small.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
-
-  final List<ProductPromo> productsPromo = [
-    ProductPromo(
-      imagePromoUrl: 'https://i.pravatar.cc/150?img=1',
-      productPromoName: 'MID DRIVE MOTOR 1',
-      productPromoDescription: '500WATT 72VOLT 1',
-      productPromoPrice: 999.999,
-    ),
-    ProductPromo(
-      imagePromoUrl: 'https://i.pravatar.cc/150?img=1',
-      productPromoName: 'MID DRIVE MOTOR 2',
-      productPromoDescription: '500WATT 72VOLT 2',
-      productPromoPrice: 999.999,
-    ),
-    ProductPromo(
-      imagePromoUrl: 'https://i.pravatar.cc/150?img=1',
-      productPromoName: 'MID DRIVE MOTOR 3',
-      productPromoDescription: '500WATT 72VOLT 3',
-      productPromoPrice: 999.999,
-    ),
-    ProductPromo(
-      imagePromoUrl: 'https://i.pravatar.cc/150?img=1',
-      productPromoName: 'MID DRIVE MOTOR 4',
-      productPromoDescription: '500WATT 72VOLT 4',
-      productPromoPrice: 999.999,
-    ),
-    ProductPromo(
-      imagePromoUrl: 'https://i.pravatar.cc/150?img=1',
-      productPromoName: 'MID DRIVE MOTOR 5',
-      productPromoDescription: '500WATT 72VOLT 5',
-      productPromoPrice: 999.999,
-    ),
-  ];
-
+class MyCartPage extends StatelessWidget {
+  MyCartPage({super.key});
+/*
   final List<Product> products = [
     Product(
       imageUrl: 'https://i.pravatar.cc/150?img=1',
@@ -74,6 +43,7 @@ class HomePage extends StatelessWidget {
       productPrice: 999.999,
     ),
   ];
+*/
 
   double _calculateAspectRatio(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -87,164 +57,94 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor:
-            AppColors.backgroundColor, // Ganti dengan warna yang diinginkan
-        appBar: AppBar(
-          // leading: IconButton(
-          //   icon: const Icon(Icons.arrow_back),
-          //   onPressed: () {
-          //     Navigator.of(context).pop();
-          //   },
-          // ),
-          title: const Text(
-            'Dyvolt EV Shop',
-            style: TextStyles.textAppBar,
+      backgroundColor:
+          AppColors.backgroundColor, // Ganti dengan warna yang diinginkan
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        title: const Text(
+          'My Cart',
+          style: TextStyles.textAppBar,
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          IconButton(
+              icon: const CustomIcon(
+                  iconName: 'icon_menu',
+                  size: 24.0,
+                  color: AppColors.blackColor),
+              onPressed: () {
+                Scaffold.of(context).openEndDrawer();
+              }),
+        ],
+      ),
+      body: Column(
+        children: [
+          Expanded(child: CartProductList()),
+          const SizedBox(height: 8)
+        ],
+      ),
+      bottomNavigationBar: Container(
+        height: 82,
+        decoration: BoxDecoration(color: AppColors.whiteColor, boxShadow: [
+          BoxShadow(
+            color: Color.fromRGBO(89, 27, 27, 0.05),
+            offset: Offset(0, -8),
+            blurRadius: 24,
           ),
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          actions: [
-            IconButton(
-                icon: const CustomIcon(
-                    iconName: 'icon_menu',
-                    size: 24.0,
-                    color: AppColors.blackColor),
+        ]),
+        padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+        child: Column(
+          children: [
+            ElevatedButton(
                 onPressed: () {
-                  Scaffold.of(context).openEndDrawer();
-                }),
+                 
+                    showModalBottomSheet(
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(32.0),
+                        ),
+                      ),
+                      builder: (BuildContext context) {
+                        return SheetOrderConfirm();
+                      },
+                    );
+                  
+                },
+                child: Container(
+                    height: 32,
+                    child: Center(
+                        child: Text('Checkout',
+                            style: TextStyle(
+                              fontFamily:
+                                  'Inter', // Nama jenis huruf (font) Inter
+                              fontSize: 18, // Ukuran teks 18px
+                              fontWeight: FontWeight.w500, // Ketebalan teks 500
+                              height: 1.33, // Tinggi baris 24px (24/18=1.33)
+                              letterSpacing: 0, color: AppColors.whiteColor,
+                            )))),
+                style: ButtonStyle(
+                  elevation: MaterialStateProperty.all<double>(0),
+                  maximumSize: MaterialStateProperty.all<Size>(
+                      Size(double.infinity, 64)),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8))),
+                  padding: MaterialStateProperty.all<EdgeInsetsGeometry?>(
+                      EdgeInsets.all(14)),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(AppColors.primaryColor),
+                )),
           ],
         ),
-        body: SingleChildScrollView(
-          // physics: NeverScrollableScrollPhysics(),
-          child: Column(children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              width: double.infinity,
-              child: BannerHome(),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Column(
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.only(left: 16),
-                        width: double.infinity, // lebar sesuai dengan parent
-                        height: 24, // tinggi container
-                        // color: Colors.blue,
-                        child: const Text(
-                          'Products Promo',
-                          textAlign: TextAlign.left,
-                          style: TextStyles.textTitleSection,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.only(right: 16),
-                      height: 24, // tinggi container
-                      // color: Colors.green, Align(
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'See all',
-                        textAlign: TextAlign.right,
-                        style: TextStyles.textLinkSmall,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                SizedBox(
-                  height: 112,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: productsPromo.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
-                        child: ProductPromoCard(
-                          imagePromoUrl: productsPromo[index].imagePromoUrl,
-                          productPromoName:
-                              productsPromo[index].productPromoName,
-                          productPromoDescription:
-                              productsPromo[index].productPromoDescription,
-                          productPromoPrice:
-                              productsPromo[index].productPromoPrice,
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                const SizedBox(height: 8)
-              ],
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.only(left: 16),
-                        width: double.infinity, // lebar sesuai dengan parent
-                        height: 24, // tinggi container
-                        // color: Colors.blue,
-                        child: const Text(
-                          'Products Catalog',
-                          textAlign: TextAlign.left,
-                          style: TextStyles.textTitleSection,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.only(right: 16),
-                      height: 24, // tinggi container
-                      // color: Colors.green, Align(
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'See all',
-                        textAlign: TextAlign.right,
-                        style: TextStyles.textLinkSmall,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height,
-                  child: GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 16,
-                      crossAxisSpacing: 24,
-                      childAspectRatio: _calculateAspectRatio(context),
-                    ),
-                    itemCount: 5,
-                    itemBuilder: (BuildContext context, int index) {
-                      return ProductCard(
-                        imageUrl: products[index].imageUrl,
-                        productName: products[index].productName,
-                        productPrice: products[index].productPrice,
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 32)
-          ]),
-        ));
+      ),
+    );
   }
 }

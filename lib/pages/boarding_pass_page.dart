@@ -1,6 +1,7 @@
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:dyvolt/main_page.dart';
 import 'package:dyvolt/pages/login_page.dart';
+import 'package:dyvolt/pages/search_result_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/icons.dart';
@@ -400,10 +401,11 @@ class BoardingPassPage extends StatelessWidget {
                                   text: 'Download',
                                   onPressed: () {
                                     // Logika yang ingin Anda jalankan saat tombol ditekan
-                                    // Navigator.pushReplacement(
-                                    //   context,
-                                    //   MaterialPageRoute(builder: (context) => MainPage()),
-                                    // );
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => MainPage()),
+                                    );
                                   }),
                             ),
                           ],
@@ -427,7 +429,14 @@ class BoardingPassPage extends StatelessWidget {
                         // ),
                         child: TextLink16(
                       text: 'Book another flight',
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SearchResultPage()),
+                          (route) => false,
+                        );
+                      },
                     )),
                   ),
                 ],

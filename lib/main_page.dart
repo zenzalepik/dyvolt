@@ -1,5 +1,8 @@
+import 'package:dyvolt/pages/boarding_pass_page.dart';
 import 'package:dyvolt/pages/my_account_page.dart';
+import 'package:dyvolt/pages/my_bookings_page.dart';
 import 'package:dyvolt/pages/personal_info_page.dart';
+import 'package:dyvolt/pages/search_result_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
 // import 'package:dyvolt/utils/fonts.dart';
@@ -49,8 +52,7 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
     ),
-    const MyAccountPage(
-    )
+    const MyAccountPage()
   ];
 
   @override
@@ -89,7 +91,7 @@ class _MainPageState extends State<MainPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => ProfilePage()),
+                                    builder: (context) => PersonalInfoPage()),
                               );
                             },
                             child: Container(
@@ -150,7 +152,11 @@ class _MainPageState extends State<MainPage> {
                 style: TextStyles.textMenuDrawer,
               ),
               onTap: () {
-                // Aksi saat menu Home diklik
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyBookingsPage()),
+                );
               },
             ),
             ListTile(
@@ -163,7 +169,11 @@ class _MainPageState extends State<MainPage> {
                 style: TextStyles.textMenuDrawer,
               ),
               onTap: () {
-                // Aksi saat menu Settings diklik
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => BoardingPassPage()),
+                );
               },
             ),
             // Tambahkan menu ikon dan label lainnya di sini
@@ -178,7 +188,11 @@ class _MainPageState extends State<MainPage> {
                 style: TextStyles.textMenuDrawer,
               ),
               onTap: () {
-                // Aksi saat menu Notifications diklik
+                Navigator.pop(context);
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => MyBookingsPage()),
+                // );
               },
             ),
 
@@ -192,7 +206,11 @@ class _MainPageState extends State<MainPage> {
                 style: TextStyles.textMenuDrawer,
               ),
               onTap: () {
-                // Aksi saat menu Home diklik
+                Navigator.pop(context);
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => MyBookingsPage()),
+                // );
               },
             ),
             Divider(
@@ -210,7 +228,11 @@ class _MainPageState extends State<MainPage> {
                 style: TextStyles.textMenuDrawer,
               ),
               onTap: () {
-                // Aksi saat menu Settings diklik
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchResultPage()),
+                );
               },
             ),
             // Tambahkan menu ikon dan label lainnya di sini
@@ -225,7 +247,11 @@ class _MainPageState extends State<MainPage> {
                 style: TextStyles.textMenuDrawer,
               ),
               onTap: () {
-                // Aksi saat menu Notifications diklik
+                Navigator.pop(context);
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => SearchResultPage()));
               },
             ),
 
@@ -239,7 +265,11 @@ class _MainPageState extends State<MainPage> {
                 style: TextStyles.textMenuDrawer,
               ),
               onTap: () {
-                // Aksi saat menu Home diklik
+                Navigator.pop(context);
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => SearchResultPage())
+                // );
               },
             ),
             ListTile(
@@ -252,7 +282,11 @@ class _MainPageState extends State<MainPage> {
                 style: TextStyles.textMenuDrawer,
               ),
               onTap: () {
-                // Aksi saat menu Settings diklik
+                Navigator.pop(context);
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => SearchResultPage())
+                // );
               },
             ),
             // Tambahkan menu ikon dan label lainnya di sini
@@ -267,7 +301,11 @@ class _MainPageState extends State<MainPage> {
                 style: TextStyles.textMenuDrawer,
               ),
               onTap: () {
-                // Aksi saat menu Notifications diklik
+                Navigator.pop(context);
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => SearchResultPage())
+                // );
               },
             ),
             const ListTile(

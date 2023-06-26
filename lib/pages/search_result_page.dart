@@ -8,7 +8,7 @@ import 'package:dyvolt/widgets/components/form_components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SeacrchResultPage extends StatelessWidget {
+class SearchResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +17,11 @@ class SeacrchResultPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.pushAndRemoveUntil(
+    context,
+    MaterialPageRoute(builder: (context) => MainPage()),
+    (route) => false,
+  );
           },
         ),
         title: const Text(

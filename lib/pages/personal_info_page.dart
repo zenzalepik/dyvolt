@@ -1,12 +1,13 @@
 import 'package:dyvolt/main_page.dart';
 import 'package:dyvolt/pages/login_page.dart';
+import 'package:dyvolt/pages/payment_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/icons.dart';
 import 'package:dyvolt/widgets/components/form_components.dart';
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatelessWidget {
+class PersonalInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -141,10 +142,10 @@ class ProfilePage extends StatelessWidget {
                       text: 'Confirm',
                       onPressed: () {
                         // Logika yang ingin Anda jalankan saat tombol ditekan
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => MainPage()),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PaymentPage()),
+                        );
                       }),
                 ],
               ),

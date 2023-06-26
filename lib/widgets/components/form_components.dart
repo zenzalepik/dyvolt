@@ -1,4 +1,5 @@
 import 'package:barcode_widget/barcode_widget.dart';
+import 'package:dyvolt/pages/flight_details_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/icons.dart';
@@ -1302,11 +1303,10 @@ class CardTicket extends StatelessWidget {
           ButtonLarge(
               text: 'Check',
               onPressed: () {
-                // Logika yang ingin Anda jalankan saat tombol ditekan
-                // Navigator.pushReplacement(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => MainPage()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FlightDetailsPage()),
+                );
               }),
         ],
       ),

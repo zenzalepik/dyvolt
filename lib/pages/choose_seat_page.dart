@@ -1,5 +1,6 @@
 import 'package:dyvolt/main_page.dart';
 import 'package:dyvolt/pages/login_page.dart';
+import 'package:dyvolt/pages/personal_info_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/icons.dart';
@@ -243,10 +244,10 @@ class ChooseSeatPage extends StatelessWidget {
                         text: 'Confirm',
                         onPressed: () {
                           // Logika yang ingin Anda jalankan saat tombol ditekan
-                          // Navigator.pushReplacement(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => MainPage()),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PersonalInfoPage()),
+                          );
                         }),
                     SizedBox(height: 24)
                   ],

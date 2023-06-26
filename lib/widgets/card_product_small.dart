@@ -42,9 +42,14 @@ class ProductPromoCard extends StatelessWidget {
             SizedBox(
               width: 96,
               height: 112,
-              child: Image.asset(
-                imagePromoUrl,
-                fit: BoxFit.cover,
+              child: ClipRRect(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(8),
+                    bottomLeft: Radius.circular(8)),
+                child: Image.asset(
+                  imagePromoUrl,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Padding(
