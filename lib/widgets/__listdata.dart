@@ -14,6 +14,8 @@ class Product {
 }
 
 class ProductList extends StatefulWidget {
+  const ProductList({super.key});
+
   @override
   _ProductListState createState() => _ProductListState();
 }
@@ -55,7 +57,7 @@ class _ProductListState extends State<ProductList> {
               onPressed: () {
                 deleteCheckedItems();
               },
-              child: Text('Delete Checked'),
+              child: const Text('Delete Checked'),
             ),
           ],
         ),

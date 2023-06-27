@@ -12,7 +12,7 @@ class TrackOrder extends StatelessWidget {
           height: 48,
           child: Column(
             children: [
-              SizedBox(height: 2),
+              const SizedBox(height: 2),
               Container(
                 height: 12,
                 width: 12,
@@ -27,8 +27,8 @@ class TrackOrder extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(width: 12),
-        Expanded(
+        const SizedBox(width: 12),
+        const Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,

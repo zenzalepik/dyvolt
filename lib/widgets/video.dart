@@ -6,7 +6,7 @@ import 'package:dyvolt/utils/icons.dart';
 class Home extends StatefulWidget {
   final String urlVideo;
 
-  Home({required this.urlVideo});
+  const Home({super.key, required this.urlVideo});
 
   @override
   _HomeState createState() => _HomeState();
@@ -74,12 +74,12 @@ class _HomeState extends State<Home> {
                   setState(() {});
                 },
                 icon: controller.value.isPlaying
-                    ? CustomIcon(
+                    ? const CustomIcon(
                         iconName: 'icon_pause',
                         size: 48,
                         color: AppColors.d9Color,
                       )
-                    : CustomIcon(
+                    : const CustomIcon(
                         iconName: 'icon_play',
                         size: 48,
                         color: AppColors.d9Color,

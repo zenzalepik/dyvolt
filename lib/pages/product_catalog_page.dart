@@ -1,10 +1,8 @@
-import 'package:dyvolt/pages/detail_product_catalog.dart';
 import 'package:dyvolt/pages/detail_product_page.dart';
+import 'package:dyvolt/utils/icons.dart';
 import 'package:dyvolt/widgets/card_product.dart';
 import 'package:dyvolt/widgets/components/form_components.dart';
 import 'package:flutter/material.dart';
-import 'package:dyvolt/widgets/slider.dart';
-import 'package:dyvolt/utils/icons.dart';
 import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/widgets/card_product_small.dart';
@@ -96,7 +94,8 @@ class ProductCatalogPage extends StatelessWidget {
             AppColors.backgroundColor, // Ganti dengan warna yang diinginkan
         appBar: AppBar(
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
+            icon: const CustomIcon(
+                iconName: 'icon_back', size: 24, color: AppColors.blackColor),
             onPressed: () {
               Navigator.of(context).pop();
             },
@@ -106,8 +105,9 @@ class ProductCatalogPage extends StatelessWidget {
             style: TextStyles.textAppBar,
           ),
           centerTitle: true,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
+                 toolbarHeight: 56,
+          backgroundColor: AppColors.whiteColor,
+          elevation: 1,
           // actions: [
           //   IconButton(
           //       icon: const CustomIcon(
@@ -122,11 +122,20 @@ class ProductCatalogPage extends StatelessWidget {
         body: SingleChildScrollView(
           // physics: NeverScrollableScrollPhysics(),
           child: Column(children: [
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromRGBO(89, 27, 27, 0.05),
+                    offset: Offset(0, 5),
+                    blurRadius: 10,
+                  ),
+                ],
+              ),
               child: Column(
                 children: [
                   IconInputCustom(
@@ -142,17 +151,8 @@ class ProductCatalogPage extends StatelessWidget {
                       color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 2,
                       blurRadius: 4,
-                      offset: Offset(0, 2),
+                      offset: const Offset(0, 2),
                     ),
-                  ),
-                ],
-              ),
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Color.fromRGBO(89, 27, 27, 0.05),
-                    offset: Offset(0, 5),
-                    blurRadius: 10,
                   ),
                 ],
               ),
@@ -226,7 +226,7 @@ class ProductCatalogPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 32)
+            const SizedBox(height: 32)
           ]),
         ));
   }

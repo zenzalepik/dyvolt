@@ -4,14 +4,16 @@ import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/icons.dart';
 
 class CardBooking extends StatelessWidget {
+  const CardBooking({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 8),
+      margin: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(8),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Color.fromRGBO(89, 27, 27, 0.05),
             offset: Offset(0, 5),
@@ -24,20 +26,20 @@ class CardBooking extends StatelessWidget {
         children: [
           Expanded(
             child: Padding(
-              padding: EdgeInsets.fromLTRB(16, 11, 0, 11),
+              padding: const EdgeInsets.fromLTRB(16, 11, 0, 11),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'MID DRIVE MOTO...',
                     style: TextStyles.textLabelDark,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Row(
                     children: [
-                      Expanded(
+                      const Expanded(
                         child: Text(
                           '05/03/2023 - 10:00 PM',
                           maxLines: 1,
@@ -48,12 +50,12 @@ class CardBooking extends StatelessWidget {
                       ),
                       Container(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                            const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4),
                           color: AppColors.labelInfoColor,
                         ),
-                        child: Text(
+                        child: const Text(
                           'Process',
                           style: TextStyle(
                               fontFamily: 'Inter',
@@ -66,8 +68,8 @@ class CardBooking extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(height: 6),
-                  Row(
+                  const SizedBox(height: 6),
+                  const Row(
                     children: [
                       Text(
                         '1.000 KM Checkup',
@@ -91,22 +93,22 @@ class CardBooking extends StatelessWidget {
           ),
           PopupMenuButton<String>(
             iconSize: 20,
-            icon: CustomIcon(
+            icon: const CustomIcon(
               iconName: 'icon_more_list',
               size: 20,
               color: AppColors.primaryColor,
             ),
             itemBuilder: (BuildContext context) {
               return <PopupMenuEntry<String>>[
-                PopupMenuItem<String>(
+                const PopupMenuItem<String>(
                   value: 'menu1',
                   child: Text('Menu 1'),
                 ),
-                PopupMenuItem<String>(
+                const PopupMenuItem<String>(
                   value: 'menu2',
                   child: Text('Menu 2'),
                 ),
-                PopupMenuItem<String>(
+                const PopupMenuItem<String>(
                   value: 'menu3',
                   child: Text('Menu 3'),
                 ),

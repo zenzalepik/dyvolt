@@ -1,25 +1,25 @@
 import 'package:dyvolt/main_page.dart';
-import 'package:dyvolt/pages/login_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/icons.dart';
-import 'package:dyvolt/utils/shadows.dart';
 import 'package:dyvolt/widgets/components/form_components.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class SearchResultPage extends StatelessWidget {
+  const SearchResultPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const CustomIcon(
+                iconName: 'icon_back', size: 24, color: AppColors.blackColor),
           onPressed: () {
             Navigator.pushAndRemoveUntil(
     context,
-    MaterialPageRoute(builder: (context) => MainPage()),
+    MaterialPageRoute(builder: (context) => const MainPage()),
     (route) => false,
   );
           },
@@ -29,8 +29,9 @@ class SearchResultPage extends StatelessWidget {
           style: TextStyles.textAppBar,
         ),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+             toolbarHeight: 56,
+          backgroundColor: AppColors.whiteColor,
+          elevation: 1,
         // actions: [
         //   IconButton(
         //       icon: const CustomIcon(
@@ -42,9 +43,9 @@ class SearchResultPage extends StatelessWidget {
         //       }),
         // ],
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
             children: [
               SizedBox(
@@ -112,7 +113,7 @@ class SearchResultPage extends StatelessWidget {
               ),
               CardTicket(),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 24),
+                padding: EdgeInsets.symmetric(vertical: 24),
               ),
             ],
           ),

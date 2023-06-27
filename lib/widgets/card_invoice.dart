@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
-import 'package:dyvolt/utils/icons.dart';
 
 class CardInvoice extends StatelessWidget {
+  const CardInvoice({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 8, 0, 16),
-      padding: EdgeInsets.fromLTRB(0, 4, 16, 0),
+      margin: const EdgeInsets.fromLTRB(0, 8, 0, 16),
+      padding: const EdgeInsets.fromLTRB(0, 4, 16, 0),
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(8),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Color.fromRGBO(89, 27, 27, 0.05),
             offset: Offset(0, 5),
@@ -25,13 +26,13 @@ class CardInvoice extends StatelessWidget {
         children: [
           Expanded(
             child: Padding(
-              padding: EdgeInsets.fromLTRB(16, 11, 0, 11),
+              padding: const EdgeInsets.fromLTRB(16, 11, 0, 11),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
-                      Expanded(
+                      const Expanded(
                         child: Text(
                           'No Invoice',
                           maxLines: 1,
@@ -42,12 +43,12 @@ class CardInvoice extends StatelessWidget {
                       ),
                       Container(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                            const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4),
                           color: AppColors.labelInfoColor,
                         ),
-                        child: Text(
+                        child: const Text(
                           'Process',
                           style: TextStyle(
                               fontFamily: 'Inter',
@@ -60,8 +61,8 @@ class CardInvoice extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(height: 6),
-                  Row(
+                  const SizedBox(height: 6),
+                  const Row(
                     children: [
                       Text(
                         'INV2032123',

@@ -10,6 +10,8 @@ class Product {
 }
 
 class CartProductList extends StatefulWidget {
+  const CartProductList({super.key});
+
   @override
   _CartProductListState createState() => _CartProductListState();
 }
@@ -101,158 +103,142 @@ class _CartProductListState extends State<CartProductList> {
                 children: [
                   Row(
                     children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 8),
+                        child: Checkbox(
+                          activeColor: AppColors.primaryColor,
+                          value: productList[index].isChecked,
+                          onChanged: (value) {
+                            setState(() {
+                              productList[index].isChecked = value!;
+                            });
+                          },
+                        ),
+                      ),
                       Expanded(
                         child: Container(
-                          child: ListTile(
-                            leading: Checkbox(
-                              value: productList[index].isChecked,
-                              onChanged: (value) {
-                                setState(() {
-                                  productList[index].isChecked = value!;
-                                });
-                              },
-                            ),
-                            title: MouseRegion(
-                              cursor: SystemMouseCursors.click,
-                              child: Material(
-                                color: Colors.transparent,
-                                child: GestureDetector(
-                                  behavior: HitTestBehavior.translucent,
-                                  onTap: () {},
-                                  child: Container(
-                                    margin: EdgeInsets.symmetric(vertical: 8),
-                                    decoration: BoxDecoration(
-                                      color: AppColors.whiteColor,
-                                      borderRadius: BorderRadius.circular(8),
-                                      // boxShadow: [
-                                      //   BoxShadow(
-                                      //     color: Color.fromRGBO(89, 27, 27, 0.05),
-                                      //     offset: Offset(0, 5),
-                                      //     blurRadius: 10,
-                                      //   ),
-                                      // ],
-                                    ),
-                                    height: 86,
-                                    child: Row(
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(8),
-                                            bottomLeft: Radius.circular(8),
-                                          ),
-                                          child: Image.asset(
-                                            'assets/images/products/1.jpg',
-                                            height: 86,
-                                            width: 86,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: Padding(
-                                            padding: EdgeInsets.fromLTRB(
-                                                16, 11, 0, 11),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'productList[index].name',
-                                                  style:
-                                                      TextStyles.textLabelDark,
-                                                  maxLines: 1,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                ),
-                                                SizedBox(height: 4),
-                                                Row(
-                                                  children: [
-                                                    Expanded(
-                                                      child: Text(
-                                                        '500WATT 72VOLT',
-                                                        maxLines: 1,
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
-                                                        style: TextStyles
-                                                            .text12px300Grey555,
-                                                        textAlign:
-                                                            TextAlign.left,
-                                                      ),
-                                                    ),
-                                                    // Container(
-                                                    //   padding: EdgeInsets.symmetric(
-                                                    //       horizontal: 4, vertical: 2),
-                                                    //   decoration: BoxDecoration(
-                                                    //     borderRadius: BorderRadius.circular(4),
-                                                    //     color: AppColors.labelInfoColor,
-                                                    //   ),
-                                                    //   child: Text(
-                                                    //     'Process',
-                                                    //     style: TextStyle(
-                                                    //         fontFamily: 'Inter',
-                                                    //         fontSize: 10.0,
-                                                    //         fontWeight: FontWeight.w400,
-                                                    //         height: 1.4,
-                                                    //         letterSpacing: 0.005,
-                                                    //         color: AppColors.primaryColor),
-                                                    //   ),
-                                                    // )
-                                                  ],
-                                                ),
-                                                SizedBox(height: 6),
-                                                Row(
-                                                  children: [
-                                                    Text('5 Item',
-                                                        style: TextStyles
-                                                            .text8px400GreyBc),
-                                                    Spacer(),
-                                                    Expanded(
-                                                      child: Text(
-                                                        'IDR 123.456',
-                                                        maxLines: 1,
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
-                                                        style: TextStyles
-                                                            .textProductPrice,
-                                                        textAlign:
-                                                            TextAlign.right,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
+                          margin: const EdgeInsets.fromLTRB(4, 8, 16, 8),
+                          decoration: BoxDecoration(
+                            color: AppColors.whiteColor,
+                            borderRadius: BorderRadius.circular(8),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color.fromRGBO(89, 27, 27, 0.05),
+                                offset: Offset(0, 5),
+                                blurRadius: 10,
+                                spreadRadius: 0,
+                              ),
+                            ],
+                          ),
+                          height: 86,
+                          child: Row(
+                            children: [
+                              ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(8),
+                                  bottomLeft: Radius.circular(8),
+                                ),
+                                child: Image.asset(
+                                  'assets/images/products/1.jpg',
+                                  height: 86,
+                                  width: 86,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              const Expanded(
+                                child: Padding(
+                                  padding: EdgeInsets.fromLTRB(16, 11, 0, 11),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'productList[index].name',
+                                        style: TextStyles.textLabelDark,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                      SizedBox(height: 4),
+                                      Row(
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              '500WATT 72VOLT',
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                              style:
+                                                  TextStyles.text12px300Grey555,
+                                              textAlign: TextAlign.left,
                                             ),
                                           ),
-                                        ),
-                                        // PopupMenuButton<String>(
-                                        //   iconSize: 20,
-                                        //   icon: CustomIcon(
-                                        //     iconName: 'icon_more_list',
-                                        //     size: 20,
-                                        //     color: AppColors.primaryColor,
-                                        //   ),
-                                        //   itemBuilder: (BuildContext context) {
-                                        //     return <PopupMenuEntry<String>>[
-                                        //       PopupMenuItem<String>(
-                                        //         value: 'menu1',
-                                        //         child: Text('Menu 1'),
-                                        //       ),
-                                        //       PopupMenuItem<String>(
-                                        //         value: 'menu2',
-                                        //         child: Text('Menu 2'),
-                                        //       ),
-                                        //       PopupMenuItem<String>(
-                                        //         value: 'menu3',
-                                        //         child: Text('Menu 3'),
-                                        //       ),
-                                        //     ];
-                                        //   },
-                                        // ),
-                                      ],
-                                    ),
+                                          // Container(
+                                          //   padding: EdgeInsets.symmetric(
+                                          //       horizontal: 4, vertical: 2),
+                                          //   decoration: BoxDecoration(
+                                          //     borderRadius: BorderRadius.circular(4),
+                                          //     color: AppColors.labelInfoColor,
+                                          //   ),
+                                          //   child: Text(
+                                          //     'Process',
+                                          //     style: TextStyle(
+                                          //         fontFamily: 'Inter',
+                                          //         fontSize: 10.0,
+                                          //         fontWeight: FontWeight.w400,
+                                          //         height: 1.4,
+                                          //         letterSpacing: 0.005,
+                                          //         color: AppColors.primaryColor),
+                                          //   ),
+                                          // )
+                                        ],
+                                      ),
+                                      SizedBox(height: 6),
+                                      Row(
+                                        children: [
+                                          Text('5 Item',
+                                              style:
+                                                  TextStyles.text8px400GreyBc),
+                                          Spacer(),
+                                          Expanded(
+                                            child: Text(
+                                              'IDR 123.456',
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                              style:
+                                                  TextStyles.textProductPrice,
+                                              textAlign: TextAlign.right,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
-                            ),
+                              // PopupMenuButton<String>(
+                              //   iconSize: 20,
+                              //   icon: CustomIcon(
+                              //     iconName: 'icon_more_list',
+                              //     size: 20,
+                              //     color: AppColors.primaryColor,
+                              //   ),
+                              //   itemBuilder: (BuildContext context) {
+                              //     return <PopupMenuEntry<String>>[
+                              //       PopupMenuItem<String>(
+                              //         value: 'menu1',
+                              //         child: Text('Menu 1'),
+                              //       ),
+                              //       PopupMenuItem<String>(
+                              //         value: 'menu2',
+                              //         child: Text('Menu 2'),
+                              //       ),
+                              //       PopupMenuItem<String>(
+                              //         value: 'menu3',
+                              //         child: Text('Menu 3'),
+                              //       ),
+                              //     ];
+                              //   },
+                              // ),
+                            ],
                           ),
                         ),
                       ),
@@ -263,20 +249,24 @@ class _CartProductListState extends State<CartProductList> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       IconButton(
-                        icon: Icon(Icons.remove),
+                        icon: const Icon(Icons.remove),
                         onPressed: decrement,
                       ),
                       Text(
                         number.toString(),
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                       ),
-                      IconButton(
-                        icon: Icon(Icons.add),
-                        onPressed: increment,
+                      Padding(
+                        padding: const EdgeInsets.only(right:16.0),
+                        child: IconButton(
+                          icon: const Icon(Icons.add),
+                          onPressed: increment,
+                        ),
                       ),
                     ],
-                  )
-             ,SizedBox(height:16),   ],
+                  ),
+                  const SizedBox(height: 16),
+                ],
               );
             },
           ),

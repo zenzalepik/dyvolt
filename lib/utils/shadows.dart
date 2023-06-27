@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Shadows {
   static const BoxShadow boxShadow1 = BoxShadow(
-    color: Color(0x591B1B0D),
+    color: Color.fromRGBO(89, 27, 27, 0.05),
     offset: Offset(0, 5),
     blurRadius: 10,
     spreadRadius: 0,

@@ -3,18 +3,19 @@ import 'package:dyvolt/widgets/popup.dart';
 import 'package:flutter/material.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/widgets/components/form_components.dart';
-import 'package:dyvolt/widgets/track_order.dart';
 
 class SheetOrderConfirm extends StatelessWidget {
+  const SheetOrderConfirm({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.only(
+      borderRadius: const BorderRadius.only(
         topRight: Radius.circular(32),
         topLeft: Radius.circular(32),
       ),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,12 +37,12 @@ class SheetOrderConfirm extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               Row(
                 children: [
-                  Text(
+                  const Text(
                     'Order Confirmation',
                     style: TextStyle(
                       fontSize: 18,
@@ -50,14 +51,14 @@ class SheetOrderConfirm extends StatelessWidget {
                     textAlign: TextAlign.left,
                   ),
                   Flexible(flex: 1, child: Container()),
-                  Text(
+                  const Text(
                     'Change Address',
                     style: TextStyles.textLinkSmall,
                     textAlign: TextAlign.right,
                   ),
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               IconNameInput(
                 label: 'Full Name',
                 hintText: 'Joko Tingkir',
@@ -65,7 +66,7 @@ class SheetOrderConfirm extends StatelessWidget {
                   // Logika yang ingin Anda jalankan saat nilai teks berubah
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               IconPhoneInput(
                 label: 'Phone (WA)',
                 hintText: '087-8374-3847',
@@ -73,7 +74,7 @@ class SheetOrderConfirm extends StatelessWidget {
                   // Logika yang ingin Anda jalankan saat nilai teks berubah
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextArea(
                 label: 'Shipping Address',
                 hintText:
@@ -82,7 +83,7 @@ class SheetOrderConfirm extends StatelessWidget {
                   // Logika yang ingin Anda jalankan saat nilai teks berubah
                 },
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               Row(
                 children: [
                   Expanded(

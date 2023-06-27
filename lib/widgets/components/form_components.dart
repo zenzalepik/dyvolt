@@ -14,6 +14,7 @@ class TextInput extends StatelessWidget {
   final ValueChanged<String>? onChanged;
 
   const TextInput({
+    super.key,
     required this.hintText,
     this.onChanged,
   });
@@ -23,12 +24,54 @@ class TextInput extends StatelessWidget {
     return TextFormField(
       style: TextStyles.textInput,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         hintText: hintText,
         labelStyle: TextStyles.textLabelInput,
       ),
       onChanged: onChanged,
     );
+  }
+}
+
+class TextBorderInput extends StatelessWidget {
+  final String hintText;
+  final String labelText;
+  final ValueChanged<String>? onChanged;
+  final String textController;
+  final bool canEdit;
+
+  const TextBorderInput({
+    super.key,
+    required this.hintText,
+    this.labelText = '',
+    this.onChanged,
+    this.textController = '',
+    this.canEdit = true,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+        enabled: canEdit,
+        controller: TextEditingController(text: textController),
+        style: const TextStyle(
+          fontFamily: 'Inter',
+          fontSize: 14.0,
+          fontWeight: FontWeight.w500,
+          height: 20.0 / 12.0,
+          letterSpacing: 0.0,
+          color: AppColors.blackColor,
+        ),
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+          hintText: hintText,
+          labelText: labelText,
+          labelStyle: TextStyles.textLabelInput,
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ));
   }
 }
 
@@ -38,6 +81,7 @@ class IconTextInput extends StatelessWidget {
   final ValueChanged<String>? onChanged;
 
   const IconTextInput({
+    super.key,
     required this.label,
     required this.hintText,
     this.onChanged,
@@ -48,18 +92,18 @@ class IconTextInput extends StatelessWidget {
     return TextField(
       style: TextStyles.textInput,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         labelText: label,
         hintText: hintText,
         labelStyle: TextStyles.textLabelInput,
-        prefixIcon: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: const CustomIcon(
+        prefixIcon: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CustomIcon(
               iconName: 'icon_profile',
               size: 20.0,
               color: AppColors.blackColor),
         ),
-        border: OutlineInputBorder(),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         floatingLabelAlignment: FloatingLabelAlignment.start,
       ),
@@ -74,6 +118,7 @@ class IconEmailInput extends StatelessWidget {
   final ValueChanged<String>? onChanged;
 
   const IconEmailInput({
+    super.key,
     required this.label,
     required this.hintText,
     this.onChanged,
@@ -84,16 +129,16 @@ class IconEmailInput extends StatelessWidget {
     return TextField(
       style: TextStyles.textInput,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         labelText: label,
         hintText: hintText,
         labelStyle: TextStyles.textLabelInput,
-        prefixIcon: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: const CustomIcon(
+        prefixIcon: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CustomIcon(
               iconName: 'icon_inbox', size: 20.0, color: AppColors.blackColor),
         ),
-        border: OutlineInputBorder(),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         floatingLabelAlignment: FloatingLabelAlignment.start,
       ),
@@ -108,6 +153,7 @@ class IconPhoneInput extends StatelessWidget {
   final ValueChanged<String>? onChanged;
 
   const IconPhoneInput({
+    super.key,
     required this.label,
     required this.hintText,
     this.onChanged,
@@ -118,16 +164,16 @@ class IconPhoneInput extends StatelessWidget {
     return TextField(
       style: TextStyles.textInput,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         labelText: label,
         hintText: hintText,
         labelStyle: TextStyles.textLabelInput,
-        prefixIcon: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: const CustomIcon(
+        prefixIcon: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CustomIcon(
               iconName: 'icon_phone', size: 20.0, color: AppColors.blackColor),
         ),
-        border: OutlineInputBorder(),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         floatingLabelAlignment: FloatingLabelAlignment.start,
       ),
@@ -142,6 +188,7 @@ class IconNameInput extends StatelessWidget {
   final ValueChanged<String>? onChanged;
 
   const IconNameInput({
+    super.key,
     required this.label,
     required this.hintText,
     this.onChanged,
@@ -152,18 +199,18 @@ class IconNameInput extends StatelessWidget {
     return TextField(
       style: TextStyles.textInput,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         labelText: label,
         hintText: hintText,
         labelStyle: TextStyles.textLabelInput,
-        prefixIcon: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: const CustomIcon(
+        prefixIcon: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CustomIcon(
               iconName: 'icon_profile',
               size: 20.0,
               color: AppColors.blackColor),
         ),
-        border: OutlineInputBorder(),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         floatingLabelAlignment: FloatingLabelAlignment.start,
       ),
@@ -178,6 +225,7 @@ class IconPassportInput extends StatelessWidget {
   final ValueChanged<String>? onChanged;
 
   const IconPassportInput({
+    super.key,
     required this.label,
     required this.hintText,
     this.onChanged,
@@ -188,18 +236,18 @@ class IconPassportInput extends StatelessWidget {
     return TextField(
       style: TextStyles.textInput,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         labelText: label,
         hintText: hintText,
         labelStyle: TextStyles.textLabelInput,
-        prefixIcon: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: const CustomIcon(
+        prefixIcon: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CustomIcon(
               iconName: 'icon_passport',
               size: 20.0,
               color: AppColors.blackColor),
         ),
-        border: OutlineInputBorder(),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         floatingLabelAlignment: FloatingLabelAlignment.start,
       ),
@@ -214,6 +262,7 @@ class IconAddressInput extends StatelessWidget {
   final ValueChanged<String>? onChanged;
 
   const IconAddressInput({
+    super.key,
     required this.label,
     required this.hintText,
     this.onChanged,
@@ -224,18 +273,18 @@ class IconAddressInput extends StatelessWidget {
     return TextField(
       style: TextStyles.textInput,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         labelText: label,
         hintText: hintText,
         labelStyle: TextStyles.textLabelInput,
-        prefixIcon: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: const CustomIcon(
+        prefixIcon: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CustomIcon(
               iconName: 'icon_address',
               size: 20.0,
               color: AppColors.blackColor),
         ),
-        border: OutlineInputBorder(),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         floatingLabelAlignment: FloatingLabelAlignment.start,
       ),
@@ -250,6 +299,7 @@ class IconNameCardInput extends StatelessWidget {
   final ValueChanged<String>? onChanged;
 
   const IconNameCardInput({
+    super.key,
     required this.label,
     required this.hintText,
     this.onChanged,
@@ -260,18 +310,18 @@ class IconNameCardInput extends StatelessWidget {
     return TextField(
       style: TextStyles.textInput,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         labelText: label,
         hintText: hintText,
         labelStyle: TextStyles.textLabelInput,
-        prefixIcon: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: const CustomIcon(
+        prefixIcon: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CustomIcon(
               iconName: 'icon_name_card',
               size: 20.0,
               color: AppColors.blackColor),
         ),
-        border: OutlineInputBorder(),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         floatingLabelAlignment: FloatingLabelAlignment.start,
       ),
@@ -285,6 +335,7 @@ class PasswordInput extends StatefulWidget {
   final ValueChanged<String>? onChanged;
 
   const PasswordInput({
+    super.key,
     required this.hintText,
     this.onChanged,
   });
@@ -302,7 +353,7 @@ class _PasswordInputState extends State<PasswordInput> {
       style: TextStyles.textInput,
       obscureText: _obscureText,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         hintText: widget.hintText,
         labelStyle: TextStyles.textLabelInput,
         suffixIcon: IconButton(
@@ -325,6 +376,7 @@ class IconPasswordInput extends StatefulWidget {
   final ValueChanged<String>? onChanged;
 
   const IconPasswordInput({
+    super.key,
     required this.labelText,
     required this.hintText,
     this.onChanged,
@@ -343,12 +395,12 @@ class _IconPasswordInputState extends State<IconPasswordInput> {
       style: TextStyles.textInput,
       obscureText: _obscureText,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         labelText: widget.labelText,
         hintText: widget.hintText,
         labelStyle: TextStyles.textLabelInput,
-        prefixIcon: Padding(
-          padding: const EdgeInsets.all(8.0),
+        prefixIcon: const Padding(
+          padding: EdgeInsets.all(8.0),
           child: CustomIcon(
               iconName: 'icon_password',
               size: 20.0,
@@ -362,7 +414,7 @@ class _IconPasswordInputState extends State<IconPasswordInput> {
             });
           },
         ),
-        border: OutlineInputBorder(),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         floatingLabelAlignment: FloatingLabelAlignment.start,
       ),
@@ -377,6 +429,7 @@ class TextArea extends StatelessWidget {
   final ValueChanged<String>? onChanged;
 
   const TextArea({
+    super.key,
     required this.hintText,
     required this.label,
     this.onChanged,
@@ -385,7 +438,7 @@ class TextArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: TextStyle(
+      style: const TextStyle(
         fontFamily: 'Inter',
         fontSize: 12.0,
         fontWeight: FontWeight.w400,
@@ -393,10 +446,10 @@ class TextArea extends StatelessWidget {
         letterSpacing: 0.0,
       ),
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         hintText: hintText,
         labelText: label,
-        labelStyle: TextStyle(
+        labelStyle: const TextStyle(
           fontFamily: 'Inter',
           fontSize: 12.0,
           fontWeight: FontWeight.w400,
@@ -420,6 +473,7 @@ class DateInput extends StatefulWidget {
   final ValueChanged<String>? onChanged;
 
   const DateInput({
+    super.key,
     required this.label,
     required this.hintText,
     this.onChanged,
@@ -448,7 +502,7 @@ class _DateInputState extends State<DateInput> {
   Widget build(BuildContext context) {
     return TextField(
       controller: _textEditingController,
-      style: TextStyle(
+      style: const TextStyle(
         fontFamily: 'Inter',
         fontSize: 12.0,
         fontWeight: FontWeight.w400,
@@ -456,10 +510,10 @@ class _DateInputState extends State<DateInput> {
         letterSpacing: 0.0,
       ),
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         labelText: widget.label,
         hintText: widget.hintText,
-        border: OutlineInputBorder(),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         floatingLabelAlignment: FloatingLabelAlignment.start,
       ),
@@ -489,6 +543,7 @@ class IconDateInput extends StatefulWidget {
   final ValueChanged<String>? onChanged;
 
   const IconDateInput({
+    super.key,
     required this.label,
     required this.hintText,
     this.onChanged,
@@ -517,7 +572,7 @@ class _IconDateInputState extends State<IconDateInput> {
   Widget build(BuildContext context) {
     return TextField(
       controller: _textEditingController,
-      style: TextStyle(
+      style: const TextStyle(
         fontFamily: 'Inter',
         fontSize: 12.0,
         fontWeight: FontWeight.w400,
@@ -525,23 +580,23 @@ class _IconDateInputState extends State<IconDateInput> {
         letterSpacing: 0.0,
       ),
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         labelText: widget.label,
         hintText: widget.hintText,
-        border: OutlineInputBorder(),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         floatingLabelAlignment: FloatingLabelAlignment.start,
-        prefixIcon: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: const CustomIcon(
+        prefixIcon: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CustomIcon(
             iconName: 'icon_dob',
             size: 20.0,
             color: Colors.black,
           ),
         ),
-        suffixIcon: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: const CustomIcon(
+        suffixIcon: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CustomIcon(
             iconName: 'icon_date',
             size: 20.0,
             color: Colors.black,
@@ -574,6 +629,7 @@ class IconDateSingleInput extends StatefulWidget {
   final ValueChanged<String>? onChanged;
 
   const IconDateSingleInput({
+    super.key,
     required this.label,
     required this.hintText,
     this.onChanged,
@@ -604,15 +660,15 @@ class _IconDateSingleInputState extends State<IconDateSingleInput> {
       controller: _textEditingController,
       style: TextStyles.textInput,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         labelText: widget.label,
         hintText: widget.hintText,
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         floatingLabelAlignment: FloatingLabelAlignment.start,
-        prefixIcon: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: const CustomIcon(
+        prefixIcon: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CustomIcon(
             iconName: 'icon_date',
             size: 20.0,
             color: Colors.black,
@@ -652,6 +708,7 @@ class IconTimeInput extends StatefulWidget {
   final ValueChanged<TimeOfDay>? onChanged;
 
   const IconTimeInput({
+    super.key,
     required this.label,
     this.onChanged,
   });
@@ -700,14 +757,14 @@ class _IconTimeInputState extends State<IconTimeInput> {
             }
           },
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
-            border: OutlineInputBorder(),
+            contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
             floatingLabelBehavior: FloatingLabelBehavior.always,
             floatingLabelAlignment: FloatingLabelAlignment.start,
             labelText: widget.label,
-            prefixIcon: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: const CustomIcon(
+            prefixIcon: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: CustomIcon(
                 iconName: 'icon_clock',
                 size: 20.0,
                 color: Colors.black,
@@ -730,6 +787,7 @@ class IconDropdownInput extends StatefulWidget {
   final ValueChanged<String>? onChanged;
 
   const IconDropdownInput({
+    super.key,
     required this.label,
     required this.hintText,
     required this.leftIcon,
@@ -757,15 +815,15 @@ class _IconDropdownInputState extends State<IconDropdownInput> {
       }).toList(),
       icon: null, // Menghilangkan ikon panah di tepi kanan dropdown
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         labelText: widget.label,
         hintText: widget.hintText,
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         floatingLabelAlignment: FloatingLabelAlignment.start,
-        prefixIcon: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: const CustomIcon(
+        prefixIcon: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CustomIcon(
             iconName: 'icon_globe',
             size: 20.0,
             color: Colors.black,
@@ -797,6 +855,7 @@ class Button extends StatelessWidget {
   final VoidCallback? onPressed;
 
   const Button({
+    super.key,
     required this.text,
     this.onPressed,
   });
@@ -807,14 +866,14 @@ class Button extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: 0,
-        padding: EdgeInsets.all(12.0),
+        backgroundColor: AppColors.primaryColor,
+        padding: const EdgeInsets.all(12.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
-        primary: AppColors.primaryColor,
-        minimumSize: Size(double.infinity, 48.0),
+        minimumSize: const Size(double.infinity, 48.0),
       ),
-      child: Container(
+      child: SizedBox(
           height: 32,
           child: Center(child: Text(text, style: TextStyles.textButton))),
     );
@@ -826,6 +885,7 @@ class ButtonWhite extends StatelessWidget {
   final VoidCallback? onPressed;
 
   const ButtonWhite({
+    super.key,
     required this.text,
     this.onPressed,
   });
@@ -836,14 +896,14 @@ class ButtonWhite extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: 0,
-        padding: EdgeInsets.all(12.0),
+        backgroundColor: AppColors.whiteColor,
+        padding: const EdgeInsets.all(12.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
-        primary: AppColors.whiteColor,
-        minimumSize: Size(double.infinity, 48.0),
+        minimumSize: const Size(double.infinity, 48.0),
       ),
-      child: Container(
+      child: SizedBox(
           height: 32,
           child: Center(child: Text(text, style: TextStyles.textButtonWhite))),
     );
@@ -855,6 +915,7 @@ class ButtonLarge extends StatelessWidget {
   final VoidCallback? onPressed;
 
   const ButtonLarge({
+    super.key,
     required this.text,
     this.onPressed,
   });
@@ -865,14 +926,14 @@ class ButtonLarge extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: 0,
-        padding: EdgeInsets.all(16.0),
+        backgroundColor: AppColors.primaryColor,
+        padding: const EdgeInsets.all(16.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
-        primary: AppColors.primaryColor,
-        minimumSize: Size(double.infinity, 48.0),
+        minimumSize: const Size(double.infinity, 48.0),
       ),
-      child: Container(
+      child: SizedBox(
           height: 32,
           child: Center(child: Text(text, style: TextStyles.textButton))),
     );
@@ -884,6 +945,7 @@ class ButtonLarge2 extends StatelessWidget {
   final VoidCallback? onPressed;
 
   const ButtonLarge2({
+    super.key,
     required this.text,
     this.onPressed,
   });
@@ -894,20 +956,20 @@ class ButtonLarge2 extends StatelessWidget {
       onPressed: onPressed,
       style: ButtonStyle(
         fixedSize: MaterialStateProperty.all<Size>(
-          Size(double.infinity, 50),
+          const Size(double.infinity, 50),
         ),
       ).merge(
         ElevatedButton.styleFrom(
           elevation: 0,
-          padding: EdgeInsets.all(14.0),
+          backgroundColor: AppColors.primaryColor,
+          padding: const EdgeInsets.all(14.0),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0),
           ),
-          primary: AppColors.primaryColor,
-          minimumSize: Size(double.infinity, 50.0),
+          minimumSize: const Size(double.infinity, 50.0),
         ),
       ),
-      child: Container(
+      child: SizedBox(
         height: 32,
         child: Center(child: Text(text, style: TextStyles.textButton)),
       ),
@@ -920,6 +982,7 @@ class ButtonWhiteLarge extends StatelessWidget {
   final VoidCallback? onPressed;
 
   const ButtonWhiteLarge({
+    super.key,
     required this.text,
     this.onPressed,
   });
@@ -930,14 +993,14 @@ class ButtonWhiteLarge extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: 0,
-        padding: EdgeInsets.all(16.0),
+        backgroundColor: AppColors.whiteColor,
+        padding: const EdgeInsets.all(16.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
-        primary: AppColors.whiteColor,
-        minimumSize: Size(double.infinity, 48.0),
+        minimumSize: const Size(double.infinity, 48.0),
       ),
-      child: Container(
+      child: SizedBox(
           height: 32,
           child: Center(child: Text(text, style: TextStyles.textButtonWhite))),
     );
@@ -949,6 +1012,7 @@ class ButtonWhiteOutlineLarge extends StatelessWidget {
   final VoidCallback? onPressed;
 
   const ButtonWhiteOutlineLarge({
+    super.key,
     required this.text,
     this.onPressed,
   });
@@ -959,21 +1023,20 @@ class ButtonWhiteOutlineLarge extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: 0,
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         surfaceTintColor: AppColors.whiteColor,
         backgroundColor: AppColors.whiteColor,
         foregroundColor: AppColors.whiteColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
-          side: BorderSide(
+          side: const BorderSide(
             color: AppColors.blackColor,
             width: 1.0,
           ),
         ),
-        primary: AppColors.whiteColor,
-        minimumSize: Size(double.infinity, 48.0),
+        minimumSize: const Size(double.infinity, 48.0),
       ),
-      child: Container(
+      child: SizedBox(
         height: 32,
         child: Center(
           child: Text(
@@ -994,7 +1057,8 @@ class ButtonOutlineLarge extends StatelessWidget {
   final Color textColor;
 
   const ButtonOutlineLarge(
-      {required this.text,
+      {super.key,
+      required this.text,
       this.onPressed,
       this.color = AppColors.transparent,
       this.borderColor = AppColors.blackColor,
@@ -1006,7 +1070,7 @@ class ButtonOutlineLarge extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: 0,
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         surfaceTintColor: color,
         backgroundColor: color,
         foregroundColor: color,
@@ -1017,10 +1081,9 @@ class ButtonOutlineLarge extends StatelessWidget {
             width: 1.0,
           ),
         ),
-        primary: color,
-        minimumSize: Size(double.infinity, 48.0),
+        minimumSize: const Size(double.infinity, 48.0),
       ),
-      child: Container(
+      child: SizedBox(
         height: 32,
         child: Center(
           child: Text(
@@ -1038,6 +1101,7 @@ class ButtonYoutube extends StatelessWidget {
   final VoidCallback? onPressed;
 
   const ButtonYoutube({
+    super.key,
     required this.text,
     this.onPressed,
   });
@@ -1048,14 +1112,14 @@ class ButtonYoutube extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: 0,
-        padding: EdgeInsets.all(14.0),
+        backgroundColor: AppColors.youtubeColor,
+        padding: const EdgeInsets.all(14.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
-        primary: AppColors.youtubeColor,
-        minimumSize: Size(double.infinity, 48.0),
+        minimumSize: const Size(double.infinity, 48.0),
       ),
-      child: Container(
+      child: SizedBox(
           height: 32,
           child: Center(child: Text(text, style: TextStyles.textButton))),
     );
@@ -1067,6 +1131,7 @@ class TextLink16 extends StatelessWidget {
   final GestureTapCallback? onTap;
 
   const TextLink16({
+    super.key,
     required this.text,
     this.onTap,
   });
@@ -1105,10 +1170,10 @@ class LabelCircle extends StatelessWidget {
             color: circleColor,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 4,
         ),
-        Container(
+        const SizedBox(
             height: 22, child: Text('Selected', style: TextStyles.textLabel))
       ],
     );
@@ -1176,8 +1241,8 @@ class CardTicket extends StatelessWidget {
                     )),
                 child: Image.asset(''),
               ),
-              SizedBox(width: 8),
-              SizedBox(
+              const SizedBox(width: 8),
+              const SizedBox(
                 child: Text(
                   'IN 230',
                   style: TextStyles.textLabelDark,
@@ -1189,13 +1254,13 @@ class CardTicket extends StatelessWidget {
                   // Isi konten di sini
                 ),
               ),
-              Text('01 hr 40min', style: TextStyles.textLabelSmall)
+              const Text('01 hr 40min', style: TextStyles.textLabelSmall)
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             children: [
-              Container(
+              const SizedBox(
                 width: 68,
                 // color: Colors.green,
                 child: Column(
@@ -1224,21 +1289,21 @@ class CardTicket extends StatelessWidget {
                   // Isi konten di sini
                 ),
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               SvgPicture.asset(
                 'assets/images/img_plane_ticket.svg', // Ubah path dengan lokasi file SVG Anda
                 // width:
                 //     200, // Sesuaikan ukuran gambar sesuai kebutuhan Anda
                 height: 36,
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Flexible(
                 child: Container(
                   color: Colors.red,
                   // Isi konten di sini
                 ),
               ),
-              Container(
+              const SizedBox(
                 width: 68,
                 // color: Colors.green,
                 child: Column(
@@ -1263,23 +1328,23 @@ class CardTicket extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 16),
-          Divider(
+          const SizedBox(height: 16),
+          const Divider(
             color: AppColors.borderDrawerColor,
             height: 1,
             thickness: 1,
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Row(
             children: [
-              Container(
+              const SizedBox(
                 width: 16,
                 height: 16,
                 child: CustomIcon(
                     iconName: 'icon_chair', color: AppColors.grey555Color),
               ),
-              SizedBox(width: 8),
-              SizedBox(
+              const SizedBox(width: 8),
+              const SizedBox(
                 child: Text(
                   'Business Class',
                   style: TextStyles.textLabelVerySmall,
@@ -1291,21 +1356,22 @@ class CardTicket extends StatelessWidget {
                   // Isi konten di sini
                 ),
               ),
-              Text('From', style: TextStyles.textLabelSmall),
-              SizedBox(width: 4),
-              Text(
+              const Text('From', style: TextStyles.textLabelSmall),
+              const SizedBox(width: 4),
+              const Text(
                 '\$230',
                 style: TextStyles.text16px600,
               ),
             ],
           ),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           ButtonLarge(
               text: 'Check',
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => FlightDetailsPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const FlightDetailsPage()),
                 );
               }),
         ],
@@ -1317,7 +1383,7 @@ class CardTicket extends StatelessWidget {
 class BarcodeScreen extends StatelessWidget {
   final String barcodeData;
 
-  const BarcodeScreen({required this.barcodeData});
+  const BarcodeScreen({super.key, required this.barcodeData});
 
   @override
   Widget build(BuildContext context) {
@@ -1331,7 +1397,7 @@ class BarcodeScreen extends StatelessWidget {
         height: 42,
         drawText: false,
       ),
-      SizedBox(height: 6),
+      const SizedBox(height: 6),
       // Tampilkan data string di bawah barcode
       Text(
         barcodeData,
@@ -1348,6 +1414,7 @@ class CardNumberLabelInput extends StatefulWidget {
   final TextStyle? labelStyle;
 
   const CardNumberLabelInput({
+    super.key,
     required this.label,
     required this.hintText,
     this.onChanged,
@@ -1381,23 +1448,23 @@ class _CardNumberLabelInputState extends State<CardNumberLabelInput> {
         Text(
           widget.label,
           style: widget.labelStyle ??
-              TextStyle(
+              const TextStyle(
                 fontFamily: 'Inter',
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
               ),
         ),
-        SizedBox(height: 8.0),
+        const SizedBox(height: 8.0),
         TextField(
           controller: _textEditingController,
           onChanged: widget.onChanged,
           decoration: InputDecoration(
-              border: UnderlineInputBorder(
+              border: const UnderlineInputBorder(
                   borderSide: BorderSide(
                 color: AppColors.borderDrawerColor,
                 width: 1.0,
               )),
-              focusedBorder: UnderlineInputBorder(
+              focusedBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(
                   color: AppColors.primaryColor,
                   width: 1.0,
@@ -1405,7 +1472,7 @@ class _CardNumberLabelInputState extends State<CardNumberLabelInput> {
                 // borderRadius: BorderRadius.circular(8.0),
               ),
               hintText: widget.hintText,
-              contentPadding: EdgeInsets.symmetric(
+              contentPadding: const EdgeInsets.symmetric(
                 vertical: 0.0,
                 horizontal: 4.0,
               ),
@@ -1424,6 +1491,7 @@ class TextLabelUnderlineInput extends StatefulWidget {
   final TextStyle? labelStyle;
 
   const TextLabelUnderlineInput({
+    super.key,
     required this.label,
     required this.hintText,
     this.onChanged,
@@ -1458,31 +1526,31 @@ class _TextLabelUnderlineInputState extends State<TextLabelUnderlineInput> {
         Text(
           widget.label,
           style: widget.labelStyle ??
-              TextStyle(
+              const TextStyle(
                 fontFamily: 'Inter',
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
               ),
         ),
-        SizedBox(height: 8.0),
+        const SizedBox(height: 8.0),
         TextField(
           controller: _textEditingController,
           onChanged: widget.onChanged,
           decoration: InputDecoration(
-            border: UnderlineInputBorder(
+            border: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: AppColors.borderDrawerColor,
                 width: 1.0,
               ),
             ),
-            focusedBorder: UnderlineInputBorder(
+            focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: AppColors.primaryColor,
                 width: 1.0,
               ),
             ),
             hintText: widget.hintText,
-            contentPadding: EdgeInsets.symmetric(
+            contentPadding: const EdgeInsets.symmetric(
               vertical: 0.0,
               horizontal: 4.0,
             ),
@@ -1503,6 +1571,7 @@ class CVVLabelUnderlineInput extends StatefulWidget {
   final TextStyle? labelStyle;
 
   const CVVLabelUnderlineInput({
+    super.key,
     required this.label,
     required this.hintText,
     this.onChanged,
@@ -1536,13 +1605,13 @@ class _CVVLabelUnderlineInputState extends State<CVVLabelUnderlineInput> {
         Text(
           widget.label,
           style: widget.labelStyle ??
-              TextStyle(
+              const TextStyle(
                 fontFamily: 'Inter',
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
               ),
         ),
-        SizedBox(height: 8.0),
+        const SizedBox(height: 8.0),
         TextField(
           controller: _textEditingController,
           onChanged: widget.onChanged,
@@ -1551,20 +1620,20 @@ class _CVVLabelUnderlineInputState extends State<CVVLabelUnderlineInput> {
             LengthLimitingTextInputFormatter(3),
           ],
           decoration: InputDecoration(
-            border: UnderlineInputBorder(
+            border: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: AppColors.borderDrawerColor,
                 width: 1.0,
               ),
             ),
-            focusedBorder: UnderlineInputBorder(
+            focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: AppColors.primaryColor,
                 width: 1.0,
               ),
             ),
             hintText: widget.hintText,
-            contentPadding: EdgeInsets.symmetric(
+            contentPadding: const EdgeInsets.symmetric(
               vertical: 0.0,
               horizontal: 4.0,
             ),
@@ -1590,10 +1659,15 @@ class IconInputCustom extends StatelessWidget {
   final double sizeCustom;
   final Color? colorCustom;
   final Color? backgroundColor;
+  final Color colorBorder;
+  final int borderWidth;
+  final String textController;
+  final bool canEdit;
 
   // final BoxShadow boxShadow;
 
-  IconInputCustom({
+  const IconInputCustom({
+    super.key,
     required this.label,
     required this.hintText,
     this.onChanged,
@@ -1602,26 +1676,25 @@ class IconInputCustom extends StatelessWidget {
     this.sizeCustom = 24,
     this.colorCustom = Colors.black,
     this.backgroundColor = AppColors.whiteColor,
+    this.colorBorder = Colors.transparent,
+    this.borderWidth = 0,
+    this.textController = '',
+    this.canEdit = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      style: TextStyle(
-        fontFamily: 'Inter',
-        fontSize: 14,
-        fontWeight: FontWeight.w400,
-      ),
+      enabled: canEdit,
+      controller: TextEditingController(text: textController),
+      style: TextStyles.textMenuDrawer,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+        contentPadding: canEdit == true
+            ? const EdgeInsets.fromLTRB(16, 12, 16, 12)
+            : const EdgeInsets.fromLTRB(16, -12, 16, 52),
         labelText: label,
         hintText: hintText,
-        labelStyle: TextStyle(
-          fontFamily: 'Inter',
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
-          color: Color(0xFFB2B2B2),
-        ),
+        labelStyle: TextStyles.textLabelInput,
         prefixIcon: Padding(
             padding: const EdgeInsets.all(8.0),
             child: CustomIcon(
@@ -1629,18 +1702,18 @@ class IconInputCustom extends StatelessWidget {
               size: sizeCustom,
               color: colorCustom,
             )),
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.transparent,
+            color: colorBorder,
             width: 0,
           ),
           borderRadius: BorderRadius.circular(8),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.transparent,
-            width: 0,
+          borderSide: const BorderSide(
+            color: AppColors.primaryColor,
+            width: 2,
           ),
           borderRadius: BorderRadius.circular(8),
         ),

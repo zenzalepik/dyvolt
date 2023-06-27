@@ -22,6 +22,7 @@ class ProductRelatedCard extends StatelessWidget {
   final double productRelatedPrice;
 
   const ProductRelatedCard({
+    super.key,
     required this.imageRelatedUrl,
     required this.productRelatedName,
     required this.productRelatedDescription,
@@ -31,7 +32,7 @@ class ProductRelatedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
+      elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
@@ -42,9 +43,19 @@ class ProductRelatedCard extends StatelessWidget {
             SizedBox(
               width: 96,
               height: 112,
-              child: Image.asset(
-                imageRelatedUrl,
-                fit: BoxFit.cover,
+              child: ClipRRect(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(
+                      8.0), // Set the border radius for top left corner
+                  bottomLeft: Radius.circular(
+                      8.0), // Set the border radius for bottom left corner
+                ),
+                child: ClipRect(
+                  child: Image.asset(
+                    imageRelatedUrl,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
             Padding(

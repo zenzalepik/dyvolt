@@ -22,6 +22,7 @@ class ProductPromoCard extends StatelessWidget {
   final double productPromoPrice;
 
   const ProductPromoCard({
+    super.key,
     required this.imagePromoUrl,
     required this.productPromoName,
     required this.productPromoDescription,
@@ -31,7 +32,7 @@ class ProductPromoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
+      elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
@@ -43,7 +44,7 @@ class ProductPromoCard extends StatelessWidget {
               width: 96,
               height: 112,
               child: ClipRRect(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8)),
                 child: Image.asset(

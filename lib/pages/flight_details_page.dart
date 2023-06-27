@@ -1,6 +1,4 @@
-import 'package:dyvolt/main_page.dart';
 import 'package:dyvolt/pages/choose_seat_page.dart';
-import 'package:dyvolt/pages/login_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/icons.dart';
@@ -10,13 +8,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class FlightDetailsPage extends StatelessWidget {
+  const FlightDetailsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const CustomIcon(
+                iconName: 'icon_back', size: 24, color: AppColors.blackColor),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -26,8 +27,9 @@ class FlightDetailsPage extends StatelessWidget {
           style: TextStyles.textAppBar,
         ),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+              toolbarHeight: 56,
+          backgroundColor: AppColors.whiteColor,
+          elevation: 1,
         // actions: [
         //   IconButton(
         //       icon: const CustomIcon(
@@ -46,7 +48,7 @@ class FlightDetailsPage extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
                   Container(
@@ -61,7 +63,7 @@ class FlightDetailsPage extends StatelessWidget {
                       children: [
                         Center(
                           child: Container(
-                            padding: EdgeInsets.all(8),
+                            padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
                               border: Border.all(
                                 color: AppColors.f6Color,
@@ -78,13 +80,13 @@ class FlightDetailsPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 16),
-                        Divider(
+                        const SizedBox(height: 16),
+                        const Divider(
                           color: AppColors.borderDrawerColor,
                           height: 1,
                           thickness: 1,
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         Row(
                           children: [
                             Container(
@@ -100,8 +102,8 @@ class FlightDetailsPage extends StatelessWidget {
                                   )),
                               child: Image.asset(''),
                             ),
-                            SizedBox(width: 8),
-                            SizedBox(
+                            const SizedBox(width: 8),
+                            const SizedBox(
                               child: Text(
                                 'IN 230',
                                 style: TextStyles.textLabelDark,
@@ -113,14 +115,14 @@ class FlightDetailsPage extends StatelessWidget {
                                 // Isi konten di sini
                               ),
                             ),
-                            Text('01 hr 40min',
+                            const Text('01 hr 40min',
                                 style: TextStyles.textLabelSmall)
                           ],
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Row(
                           children: [
-                            Container(
+                            const SizedBox(
                               width: 68,
                               // color: Colors.green,
                               child: Column(
@@ -155,21 +157,21 @@ class FlightDetailsPage extends StatelessWidget {
                                 // Isi konten di sini
                               ),
                             ),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             SvgPicture.asset(
                               'assets/images/img_plane_ticket.svg', // Ubah path dengan lokasi file SVG Anda
                               // width:
                               //     200, // Sesuaikan ukuran gambar sesuai kebutuhan Anda
                               height: 36,
                             ),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Flexible(
                               child: Container(
                                 color: Colors.red,
                                 // Isi konten di sini
                               ),
                             ),
-                            Container(
+                            const SizedBox(
                               width: 68,
                               // color: Colors.green,
                               child: Column(
@@ -201,13 +203,13 @@ class FlightDetailsPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 16),
-                        Divider(
+                        const SizedBox(height: 16),
+                        const Divider(
                           color: AppColors.borderDrawerColor,
                           height: 1,
                           thickness: 1,
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -218,7 +220,7 @@ class FlightDetailsPage extends StatelessWidget {
                                   hintText: '15/07/2022',
                                   onChanged: (value) {}),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 16,
                             ),
                             Expanded(
@@ -233,14 +235,14 @@ class FlightDetailsPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 16),
-                        Divider(
+                        const SizedBox(height: 16),
+                        const Divider(
                           color: AppColors.borderDrawerColor,
                           height: 1,
                           thickness: 1,
                         ),
-                        SizedBox(height: 16),
-                        Row(
+                        const SizedBox(height: 16),
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
@@ -275,8 +277,8 @@ class FlightDetailsPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 24),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 24),
                   ),
                 ],
               ),
@@ -303,7 +305,7 @@ class FlightDetailsPage extends StatelessWidget {
                                   );
                                 }),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 16,
                           ),
                           Expanded(
@@ -313,7 +315,7 @@ class FlightDetailsPage extends StatelessWidget {
                                   // Logika yang ingin Anda jalankan saat tombol ditekan
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => ChooseSeatPage()),
+                                    MaterialPageRoute(builder: (context) => const ChooseSeatPage()),
                                   );
                                 }),
                           ),
@@ -321,8 +323,8 @@ class FlightDetailsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 24),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 24),
                   ),
                 ],
               ),

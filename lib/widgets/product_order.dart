@@ -6,6 +6,8 @@ import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/icons.dart';
 
 class ProductOrder extends StatelessWidget {
+  const ProductOrder({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
@@ -16,14 +18,14 @@ class ProductOrder extends StatelessWidget {
           behavior: HitTestBehavior.translucent,
           onTap: () {            Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => PaymentInfoPage()),
+              MaterialPageRoute(builder: (context) => const PaymentInfoPage()),
             );},
           child: Container(
-            margin: EdgeInsets.symmetric(vertical: 8),
+            margin: const EdgeInsets.symmetric(vertical: 8),
             decoration: BoxDecoration(
               color: AppColors.whiteColor,
               borderRadius: BorderRadius.circular(8),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Color.fromRGBO(89, 27, 27, 0.05),
                   offset: Offset(0, 5),
@@ -35,7 +37,7 @@ class ProductOrder extends StatelessWidget {
             child: Row(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
                   ),
@@ -48,20 +50,20 @@ class ProductOrder extends StatelessWidget {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(16, 11, 0, 11),
+                    padding: const EdgeInsets.fromLTRB(16, 11, 0, 11),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'MID DRIVE MOTO...',
                           style: TextStyles.textLabelDark,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Row(
                           children: [
-                            Expanded(
+                            const Expanded(
                               child: Text(
                                 '500WATT 72VOLT',
                                 maxLines: 1,
@@ -71,13 +73,13 @@ class ProductOrder extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                   horizontal: 4, vertical: 2),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(4),
                                 color: AppColors.labelInfoColor,
                               ),
-                              child: Text(
+                              child: const Text(
                                 'Process',
                                 style: TextStyle(
                                     fontFamily: 'Inter',
@@ -90,8 +92,8 @@ class ProductOrder extends StatelessWidget {
                             )
                           ],
                         ),
-                        SizedBox(height: 6),
-                        Row(
+                        const SizedBox(height: 6),
+                        const Row(
                           children: [
                             Text('5 Item', style: TextStyles.text8px400GreyBc),
                             Spacer(),
@@ -144,11 +146,11 @@ class ProductOrder extends StatelessWidget {
                         ),
                       ),
                       builder: (BuildContext context) {
-                        return SheetPopUp();
+                        return const SheetPopUp();
                       },
                     );
                   },
-                  icon: CustomIcon(
+                  icon: const CustomIcon(
                     iconName: 'icon_more_list',
                     size: 20,
                     color: AppColors.primaryColor,

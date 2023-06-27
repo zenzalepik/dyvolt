@@ -39,18 +39,7 @@ class CollapseFAQ extends StatelessWidget {
               collapsed: ExpandableButton(
                 child: Container(
                   width: double.infinity,
-                  padding: EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: AppColors.whiteColor,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color.fromRGBO(89, 27, 27, 0.05),
-                        offset: Offset(0, 5),
-                        blurRadius: 10,
-                      ),
-                    ],
-                  ),
+                  padding: const EdgeInsets.all(16),
                   child: Row(
                     children: [
                       Text(question, style: TextStyles.text14px600),
@@ -58,7 +47,7 @@ class CollapseFAQ extends StatelessWidget {
                         flex: 2,
                         child: Container(),
                       ),
-                      CustomIcon(
+                      const CustomIcon(
                           iconName: 'icon_plus',
                           size: 16,
                           color: AppColors.grey555Color)
@@ -71,11 +60,11 @@ class CollapseFAQ extends StatelessWidget {
                   ExpandableButton(
                     child: Container(
                       width: double.infinity,
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         color: AppColors.primaryColor,
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                             color: Color.fromRGBO(89, 27, 27, 0.05),
                             offset: Offset(0, 5),
@@ -90,7 +79,7 @@ class CollapseFAQ extends StatelessWidget {
                             flex: 2,
                             child: Container(),
                           ),
-                          CustomIcon(
+                          const CustomIcon(
                               iconName: 'icon_plus',
                               size: 16,
                               color: AppColors.whiteColor)
@@ -101,12 +90,12 @@ class CollapseFAQ extends StatelessWidget {
                   Expandable(
                     collapsed: Container(),
                     expanded: Container(
-                      margin: EdgeInsets.only(top: 8),
-                      padding: EdgeInsets.all(16),
+                      margin: const EdgeInsets.only(top: 8),
+                      padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           color: Colors.white,
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Color.fromRGBO(89, 27, 27, 0.05),
                               offset: Offset(0, 5),

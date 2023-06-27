@@ -1,11 +1,12 @@
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/icons.dart';
-import 'package:dyvolt/widgets/components/form_components.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class BookingDatePage extends StatefulWidget {
+  const BookingDatePage({super.key});
+
   @override
   _BookingDatePageState createState() => _BookingDatePageState();
 }
@@ -36,7 +37,8 @@ class _BookingDatePageState extends State<BookingDatePage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const CustomIcon(
+                iconName: 'icon_back', size: 24, color: AppColors.blackColor),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -46,8 +48,9 @@ class _BookingDatePageState extends State<BookingDatePage> {
           style: TextStyles.textAppBar,
         ),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+          toolbarHeight: 56,
+          backgroundColor: AppColors.whiteColor,
+          elevation: 1,
         // actions: [
         //   IconButton(
         //       icon: const CustomIcon(
@@ -62,7 +65,7 @@ class _BookingDatePageState extends State<BookingDatePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -75,7 +78,7 @@ class _BookingDatePageState extends State<BookingDatePage> {
                       text: _SelectedDate,
                     ),
                     enabled: false,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontFamily: 'Inter', // Nama jenis huruf (font) Inter
                         fontSize: 14, // Ukuran teks 14px
                         fontWeight: FontWeight.w500, // Ketebalan teks 500
@@ -83,9 +86,9 @@ class _BookingDatePageState extends State<BookingDatePage> {
                         letterSpacing: 0,
                         color: AppColors.blackColor),
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+                      contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
                       labelText: 'Booking Date',
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                         fontFamily: 'Inter', // Nama jenis huruf (font) Inter
                         fontSize: 14, // Ukuran teks 14px
                         fontWeight: FontWeight.w500, // Ketebalan teks 500
@@ -94,16 +97,16 @@ class _BookingDatePageState extends State<BookingDatePage> {
                         color: AppColors.blackColor,
                       ),
                       hintText: _selectedDayCurrentMonth != null
-                          ? '${DateFormat('d MMMM yyyy').format(DateTime(now.year, now.month, _selectedDayCurrentMonth!))}'
+                          ? DateFormat('d MMMM yyyy').format(DateTime(now.year, now.month, _selectedDayCurrentMonth!))
                           : _selectedDayNextMonth != null
-                              ? '${DateFormat('d MMMM yyyy').format(DateTime(now.year, now.month + 1, _selectedDayNextMonth!))}'
+                              ? DateFormat('d MMMM yyyy').format(DateTime(now.year, now.month + 1, _selectedDayNextMonth!))
                               : '',
-                      border: OutlineInputBorder(),
+                      border: const OutlineInputBorder(),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       floatingLabelAlignment: FloatingLabelAlignment.start,
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: const CustomIcon(
+                      prefixIcon: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: CustomIcon(
                           iconName: 'icon_date',
                           size: 20.0,
                           color: Colors.black,
@@ -127,9 +130,9 @@ class _BookingDatePageState extends State<BookingDatePage> {
               children: [
                 Expanded(
                   child: Container(
-                    color: Color(0xE6E8E7).withOpacity(0.5),
-                    padding: EdgeInsets.fromLTRB(16, 8, 0, 8),
-                    child: Center(
+                    color: const Color(0x00e6e8e7).withOpacity(0.5),
+                    padding: const EdgeInsets.fromLTRB(16, 8, 0, 8),
+                    child: const Center(
                       child: Text('Mon',
                           style: TextStyle(
                             color: AppColors.blackColor,
@@ -142,9 +145,9 @@ class _BookingDatePageState extends State<BookingDatePage> {
                 ),
                 Expanded(
                   child: Container(
-                    color: Color(0xE6E8E7).withOpacity(0.5),
-                    padding: EdgeInsets.symmetric(vertical: 8),
-                    child: Center(
+                    color: const Color(0x00e6e8e7).withOpacity(0.5),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: const Center(
                       child: Text('Tue',
                           style: TextStyle(
                             color: AppColors.blackColor,
@@ -157,9 +160,9 @@ class _BookingDatePageState extends State<BookingDatePage> {
                 ),
                 Expanded(
                   child: Container(
-                    color: Color(0xE6E8E7).withOpacity(0.5),
-                    padding: EdgeInsets.symmetric(vertical: 8),
-                    child: Center(
+                    color: const Color(0x00e6e8e7).withOpacity(0.5),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: const Center(
                       child: Text('Wed',
                           style: TextStyle(
                             color: AppColors.blackColor,
@@ -172,9 +175,9 @@ class _BookingDatePageState extends State<BookingDatePage> {
                 ),
                 Expanded(
                   child: Container(
-                    color: Color(0xE6E8E7).withOpacity(0.5),
-                    padding: EdgeInsets.symmetric(vertical: 8),
-                    child: Center(
+                    color: const Color(0x00e6e8e7).withOpacity(0.5),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: const Center(
                       child: Text('Thu',
                           style: TextStyle(
                             color: AppColors.blackColor,
@@ -187,9 +190,9 @@ class _BookingDatePageState extends State<BookingDatePage> {
                 ),
                 Expanded(
                   child: Container(
-                    color: Color(0xE6E8E7).withOpacity(0.5),
-                    padding: EdgeInsets.symmetric(vertical: 8),
-                    child: Center(
+                    color: const Color(0x00e6e8e7).withOpacity(0.5),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: const Center(
                       child: Text('Fri',
                           style: TextStyle(
                             color: AppColors.blackColor,
@@ -202,9 +205,9 @@ class _BookingDatePageState extends State<BookingDatePage> {
                 ),
                 Expanded(
                   child: Container(
-                    color: Color(0xE6E8E7).withOpacity(0.5),
-                    padding: EdgeInsets.fromLTRB(0, 8, 16, 8),
-                    child: Center(
+                    color: const Color(0x00e6e8e7).withOpacity(0.5),
+                    padding: const EdgeInsets.fromLTRB(0, 8, 16, 8),
+                    child: const Center(
                       child: Text('Sun',
                           style: TextStyle(
                             color: AppColors.blackColor,
@@ -225,7 +228,7 @@ class _BookingDatePageState extends State<BookingDatePage> {
                     child: Text(
                       currentMonthName,
                       textAlign: TextAlign.left,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontFamily: 'Inter',
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.w400,
@@ -244,7 +247,7 @@ class _BookingDatePageState extends State<BookingDatePage> {
                     child: GridView.count(
                       crossAxisSpacing: 22,
                       mainAxisSpacing: 16,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       crossAxisCount: 7,
                       children: _buildCalendarCells(
@@ -254,14 +257,14 @@ class _BookingDatePageState extends State<BookingDatePage> {
                 ),
               ],
             ),
-            SizedBox(height: 16,),
+            const SizedBox(height: 16,),
             Row(children: [
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
                   child: Text(
                     nextMonthName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: 'Inter',
                       fontStyle: FontStyle.normal,
                       fontWeight: FontWeight.w400,
@@ -279,7 +282,7 @@ class _BookingDatePageState extends State<BookingDatePage> {
                     child: GridView.count(
                       mainAxisSpacing: 16,
                       crossAxisSpacing: 22,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       crossAxisCount: 7,
                       children: _buildCalendarCells(
@@ -293,20 +296,32 @@ class _BookingDatePageState extends State<BookingDatePage> {
         ),
       ),
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(color: AppColors.whiteColor, boxShadow: [
+        decoration: const BoxDecoration(color: AppColors.whiteColor, boxShadow: [
           BoxShadow(
             color: Color.fromRGBO(89, 27, 27, 0.05),
             offset: Offset(0, -8),
             blurRadius: 24,
           ),
         ]),
-        padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
         child: ElevatedButton(
             onPressed: () {
               // Aksi yang akan dilakukan saat tombol ditekan
               // print('Tombol ditekan!');
             },
-            child: Container(
+            style: ButtonStyle(
+              elevation: MaterialStateProperty.all<double>(0),
+              maximumSize:
+                  MaterialStateProperty.all<Size>(const Size(double.infinity, 64)),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8))),
+              padding: MaterialStateProperty.all<EdgeInsetsGeometry?>(
+                  const EdgeInsets.all(16)),
+              backgroundColor:
+                  MaterialStateProperty.all<Color>(AppColors.primaryColor),
+            ),
+            child: const SizedBox(
                 height: 32,
                 child: Center(
                     child: Text('Select',
@@ -316,19 +331,7 @@ class _BookingDatePageState extends State<BookingDatePage> {
                           fontWeight: FontWeight.w500, // Ketebalan teks 500
                           height: 1.33, // Tinggi baris 24px (24/18=1.33)
                           letterSpacing: 0,
-                        )))),
-            style: ButtonStyle(
-              elevation: MaterialStateProperty.all<double>(0),
-              maximumSize:
-                  MaterialStateProperty.all<Size>(Size(double.infinity, 64)),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8))),
-              padding: MaterialStateProperty.all<EdgeInsetsGeometry?>(
-                  EdgeInsets.all(16)),
-              backgroundColor:
-                  MaterialStateProperty.all<Color>(AppColors.primaryColor),
-            )),
+                        ))))),
       ),
     );
   }
@@ -360,13 +363,13 @@ class _BookingDatePageState extends State<BookingDatePage> {
         ElevatedButton(
           onPressed: null,
           style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.all(0),
+            padding: const EdgeInsets.all(0),
             // backgroundColor: Colors.green,
           ),
-          child: Row(
+          child: const Row(
             children: [
               Expanded(
-                child: Container(
+                child: SizedBox(
                   // color: Colors.orange,
                   width: 40,
                   child: Text(
@@ -416,11 +419,11 @@ class _BookingDatePageState extends State<BookingDatePage> {
                   });
                 },
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.all(0),
+                  padding: const EdgeInsets.all(0),
                   elevation: 0,
                   backgroundColor: selectedDay == day
                       ? AppColors.primaryColor
-                      : Color(0xFFECF3FD).withOpacity(0.5),
+                      : const Color(0xFFECF3FD).withOpacity(0.5),
                 ),
                 child: Row(
                   children: [
@@ -455,9 +458,9 @@ class _BookingDatePageState extends State<BookingDatePage> {
         ElevatedButton(
           onPressed: null,
           style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.all(0),
+            padding: const EdgeInsets.all(0),
           ),
-          child: Text(
+          child: const Text(
             '-',
             style: TextStyle(
               color: Colors.white,

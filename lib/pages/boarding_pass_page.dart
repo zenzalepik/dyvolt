@@ -1,23 +1,23 @@
-import 'package:barcode_widget/barcode_widget.dart';
 import 'package:dyvolt/main_page.dart';
-import 'package:dyvolt/pages/login_page.dart';
 import 'package:dyvolt/pages/search_result_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/icons.dart';
-import 'package:dyvolt/utils/shadows.dart';
 import 'package:dyvolt/widgets/components/form_components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BoardingPassPage extends StatelessWidget {
+  const BoardingPassPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const CustomIcon(
+                iconName: 'icon_back', size: 24, color: AppColors.blackColor),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -27,8 +27,9 @@ class BoardingPassPage extends StatelessWidget {
           style: TextStyles.textAppBar,
         ),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+          toolbarHeight: 56,
+          backgroundColor: AppColors.whiteColor,
+          elevation: 1,
         // actions: [
         //   IconButton(
         //       icon: const CustomIcon(
@@ -47,7 +48,7 @@ class BoardingPassPage extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
                   Container(
@@ -63,7 +64,7 @@ class BoardingPassPage extends StatelessWidget {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Container(
+                            SizedBox(
                               width: 48,
                               height: 48,
                               child: ClipRRect(
@@ -94,7 +95,7 @@ class BoardingPassPage extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 8,
                             ),
                             Flexible(
@@ -112,18 +113,18 @@ class BoardingPassPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 32),
-                        Divider(
+                        const SizedBox(height: 32),
+                        const Divider(
                           color: AppColors.borderDrawerColor,
                           height: 1,
                           thickness: 1,
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Container(
+                            const SizedBox(
                               width: 68,
                               // color: Colors.green,
                               child: Column(
@@ -152,7 +153,7 @@ class BoardingPassPage extends StatelessWidget {
                                 // Isi konten di sini
                               ),
                             ),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             SvgPicture.asset(
                               'assets/images/img_plane_ticket.svg', // Ubah path dengan lokasi file SVG Anda
                               // width:
@@ -160,14 +161,14 @@ class BoardingPassPage extends StatelessWidget {
                               fit: BoxFit.fitWidth,
                               height: 28,
                             ),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Flexible(
                               child: Container(
                                 color: Colors.red,
                                 // Isi konten di sini
                               ),
                             ),
-                            Container(
+                            const SizedBox(
                               width: 68,
                               // color: Colors.green,
                               child: Column(
@@ -192,12 +193,12 @@ class BoardingPassPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 16,
                         ),
                         Row(
                           children: [
-                            Container(
+                            const SizedBox(
                               width: 68,
                               // color: Colors.green,
                               child: Column(
@@ -219,7 +220,7 @@ class BoardingPassPage extends StatelessWidget {
                                 // Isi konten di sini
                               ),
                             ),
-                            Container(
+                            const SizedBox(
                               width: 68,
                               // color: Colors.green,
                               child: Column(
@@ -238,7 +239,7 @@ class BoardingPassPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -249,7 +250,7 @@ class BoardingPassPage extends StatelessWidget {
                                   hintText: '15/07/2022',
                                   onChanged: (value) {}),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 16,
                             ),
                             Expanded(
@@ -264,16 +265,16 @@ class BoardingPassPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 32),
-                        Divider(
+                        const SizedBox(height: 32),
+                        const Divider(
                           color: AppColors.borderDrawerColor,
                           height: 1,
                           thickness: 1,
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         Row(
                           children: [
-                            Column(
+                            const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
@@ -296,8 +297,8 @@ class BoardingPassPage extends StatelessWidget {
                                 // Isi konten di sini
                               ),
                             ),
-                            SizedBox(width: 8),
-                            Column(
+                            const SizedBox(width: 8),
+                            const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
@@ -320,8 +321,8 @@ class BoardingPassPage extends StatelessWidget {
                                 // Isi konten di sini
                               ),
                             ),
-                            SizedBox(width: 8),
-                            Column(
+                            const SizedBox(width: 8),
+                            const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
@@ -338,14 +339,14 @@ class BoardingPassPage extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Flexible(
                               child: Container(
                                 color: Colors.red,
                                 // Isi konten di sini
                               ),
                             ),
-                            Column(
+                            const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
@@ -364,14 +365,14 @@ class BoardingPassPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 16),
-                        Divider(
+                        const SizedBox(height: 16),
+                        const Divider(
                           color: AppColors.borderDrawerColor,
                           height: 1,
                           thickness: 1,
                         ),
-                        SizedBox(height: 20),
-                        Row(
+                        const SizedBox(height: 20),
+                        const Row(
                           children: [
                             Expanded(
                               child: BarcodeScreen(
@@ -379,7 +380,7 @@ class BoardingPassPage extends StatelessWidget {
                             )
                           ],
                         ),
-                        SizedBox(height: 24),
+                        const SizedBox(height: 24),
                         Row(
                           children: [
                             // Expanded(
@@ -404,7 +405,7 @@ class BoardingPassPage extends StatelessWidget {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => MainPage()),
+                                          builder: (context) => const MainPage()),
                                     );
                                   }),
                             ),
@@ -433,7 +434,7 @@ class BoardingPassPage extends StatelessWidget {
                         Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SearchResultPage()),
+                              builder: (context) => const SearchResultPage()),
                           (route) => false,
                         );
                       },

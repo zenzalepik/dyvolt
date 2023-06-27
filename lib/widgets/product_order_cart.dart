@@ -1,11 +1,10 @@
-import 'package:dyvolt/pages/payment_info.dart';
-import 'package:dyvolt/widgets/sheet_track_order.dart';
 import 'package:flutter/material.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
-import 'package:dyvolt/utils/icons.dart';
 
 class ProductOrderCart extends StatelessWidget {
+  const ProductOrderCart({super.key});
+
   // final content = IconButton(
   //   onPressed: () {
   //     showModalBottomSheet(
@@ -39,7 +38,7 @@ class ProductOrderCart extends StatelessWidget {
 
           },
           child: Container(
-            margin: EdgeInsets.symmetric(vertical: 8),
+            margin: const EdgeInsets.symmetric(vertical: 8),
             decoration: BoxDecoration(
               color: AppColors.whiteColor,
               borderRadius: BorderRadius.circular(8),
@@ -55,7 +54,7 @@ class ProductOrderCart extends StatelessWidget {
             child: Row(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
                   ),
@@ -66,7 +65,7 @@ class ProductOrderCart extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(16, 11, 0, 11),
                     child: Column(

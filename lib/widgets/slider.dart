@@ -13,6 +13,8 @@ class BannerHome extends StatelessWidget {
     Colors.lightBlue,
   ];
 
+  BannerHome({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BannerSlider(
@@ -26,7 +28,7 @@ class BannerSlider extends StatefulWidget {
   final List<String> imageAssetNames;
   final List<Color> carouselColors;
 
-  const BannerSlider({
+  const BannerSlider({super.key, 
     required this.imageAssetNames,
     required this.carouselColors,
   });

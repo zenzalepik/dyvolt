@@ -4,7 +4,6 @@ import 'package:dyvolt/utils/icons.dart';
 import 'package:dyvolt/widgets/card_invoice.dart';
 import 'package:dyvolt/widgets/collapse_white.dart';
 import 'package:dyvolt/widgets/components/form_components.dart';
-import 'package:dyvolt/widgets/product_order.dart';
 import 'package:dyvolt/widgets/product_order_payment.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +15,8 @@ class PaymentInfoPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const CustomIcon(
+                iconName: 'icon_back', size: 24, color: AppColors.blackColor),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -26,8 +26,9 @@ class PaymentInfoPage extends StatelessWidget {
           style: TextStyles.textAppBar,
         ),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+              toolbarHeight: 56,
+          backgroundColor: AppColors.whiteColor,
+          elevation: 1,
         actions: [
           IconButton(
               icon: const CustomIcon(
@@ -41,7 +42,7 @@ class PaymentInfoPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.all(16),
+          margin: const EdgeInsets.all(16),
           // decoration: BoxDecoration(
           // color: AppColors.whiteColor,
           // borderRadius: BorderRadius.circular(16),
@@ -55,10 +56,10 @@ class PaymentInfoPage extends StatelessWidget {
           // ),
           child: Column(
             children: [
-              Row(
+              const Row(
                 children: [Expanded(child: CardInvoice())],
               ),
-              Row(
+              const Row(
                 children: [
                   Expanded(
                     child: CollapseWhite(
@@ -78,7 +79,7 @@ class PaymentInfoPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Row(children: [
@@ -86,21 +87,21 @@ class PaymentInfoPage extends StatelessWidget {
                     child: CollapseWhite(
                   title: 'Shipment Info',
                   content: Padding(
-                    padding: EdgeInsets.all(0),
+                    padding: const EdgeInsets.all(0),
                     child: Column(
                       children: [
                         // Tambahkan Pro
-                        Row(
+                        const Row(
                           children: [
                             Expanded(
                                 child: Text('Resi Number',
                                     style: TextStyles.text10px300Grey999)),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
-                        Row(
+                        const Row(
                           children: [
                             Expanded(
                                 child: Text('231839291234',
@@ -109,7 +110,7 @@ class PaymentInfoPage extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Container(
+                            SizedBox(
                               height: 40,
                               width: 40,
                               child: Image.asset(
@@ -117,10 +118,10 @@ class PaymentInfoPage extends StatelessWidget {
                                   height: 40,
                                   width: 40),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
-                            Row(
+                            const Row(
                               children: [
                                 Text('JNE ( REG - Reguler )',
                                     style: TextStyles.textProductPrice),
@@ -132,12 +133,12 @@ class PaymentInfoPage extends StatelessWidget {
                                 height: 0,
                               ),
                             ),
-                            SizedBox(width: 10),
-                            Text('Estimasi 2-4 Hari',
+                            const SizedBox(width: 10),
+                            const Text('Estimasi 2-4 Hari',
                                 style: TextStyles.text10px300Grey999)
                           ],
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         TextArea(
                           label: 'Shipping Address',
                           hintText:
@@ -151,7 +152,7 @@ class PaymentInfoPage extends StatelessWidget {
                   ),
                 )),
               ]),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Row(
@@ -160,12 +161,12 @@ class PaymentInfoPage extends StatelessWidget {
                     child: CollapseWhite(
                       title: 'Payment Info',
                       content: Padding(
-                        padding: EdgeInsets.all(0),
+                        padding: const EdgeInsets.all(0),
                         child: Column(
                           children: [
                             Row(
                               children: [
-                                Container(
+                                SizedBox(
                                   height: 40,
                                   width: 40,
                                   child: Image.asset(
@@ -173,10 +174,10 @@ class PaymentInfoPage extends StatelessWidget {
                                       height: 40,
                                       width: 40),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
-                                Row(
+                                const Row(
                                   children: [
                                     Text('Transfer Bank BCA',
                                         style: TextStyles.textProductPrice),
@@ -188,17 +189,17 @@ class PaymentInfoPage extends StatelessWidget {
                                     height: 0,
                                   ),
                                 ),
-                                SizedBox(width: 10),
-                                Text('Transfer Bank Manual',
+                                const SizedBox(width: 10),
+                                const Text('Transfer Bank Manual',
                                     style: TextStyles.text10px300Grey999)
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Row(
                               children: [
-                                Row(
+                                const Row(
                                   children: [
                                     Text('Product (5 Items)',
                                         style: TextStyles.text12px500Grey70),
@@ -210,17 +211,17 @@ class PaymentInfoPage extends StatelessWidget {
                                     height: 0,
                                   ),
                                 ),
-                                SizedBox(width: 10),
-                                Text('Rp 540.000',
+                                const SizedBox(width: 10),
+                                const Text('Rp 540.000',
                                     style: TextStyles.text10px300Grey999)
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Row(
                               children: [
-                                Row(
+                                const Row(
                                   children: [
                                     Text('Product Discount',
                                         style: TextStyles.text12px500Grey70),
@@ -232,17 +233,17 @@ class PaymentInfoPage extends StatelessWidget {
                                     height: 0,
                                   ),
                                 ),
-                                SizedBox(width: 10),
-                                Text('-Rp 500',
+                                const SizedBox(width: 10),
+                                const Text('-Rp 500',
                                     style: TextStyles.text10px300Grey999)
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Row(
                               children: [
-                                Row(
+                                const Row(
                                   children: [
                                     Text('Shipping Payment',
                                         style: TextStyles.text12px500Grey70),
@@ -254,17 +255,17 @@ class PaymentInfoPage extends StatelessWidget {
                                     height: 0,
                                   ),
                                 ),
-                                SizedBox(width: 10),
-                                Text('Rp 44.000',
+                                const SizedBox(width: 10),
+                                const Text('Rp 44.000',
                                     style: TextStyles.text10px300Grey999)
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Row(
                               children: [
-                                Row(
+                                const Row(
                                   children: [
                                     Text('Shipping Discount',
                                         style: TextStyles.text12px500Grey70),
@@ -276,17 +277,17 @@ class PaymentInfoPage extends StatelessWidget {
                                     height: 0,
                                   ),
                                 ),
-                                SizedBox(width: 10),
-                                Text('-Rp 20.000',
+                                const SizedBox(width: 10),
+                                const Text('-Rp 20.000',
                                     style: TextStyles.text10px300Grey999)
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Row(
                               children: [
-                                Row(
+                                const Row(
                                   children: [
                                     Text('Discount Coupon',
                                         style: TextStyles.text12px500Grey70),
@@ -298,17 +299,17 @@ class PaymentInfoPage extends StatelessWidget {
                                     height: 0,
                                   ),
                                 ),
-                                SizedBox(width: 10),
-                                Text('Rp 120.000',
+                                const SizedBox(width: 10),
+                                const Text('Rp 120.000',
                                     style: TextStyles.text10px300Grey999)
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Row(
                               children: [
-                                Row(
+                                const Row(
                                   children: [
                                     Text('Total Payment',
                                         style: TextStyles.text14px600Blue),
@@ -320,10 +321,10 @@ class PaymentInfoPage extends StatelessWidget {
                                     height: 0,
                                   ),
                                 ),
-                                SizedBox(width: 10),
-                                Text('Rp 540.000',
+                                const SizedBox(width: 10),
+                                const Text('Rp 540.000',
                                     style: TextStyles.text14px600Blue),
-                                SizedBox(
+                                const SizedBox(
                                   height: 8,
                                 )
                               ],
@@ -335,21 +336,21 @@ class PaymentInfoPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
             ],
           ),
         ),
       ),
       bottomNavigationBar: Container(
         height: 136,
-        decoration: BoxDecoration(color: AppColors.whiteColor, boxShadow: [
+        decoration: const BoxDecoration(color: AppColors.whiteColor, boxShadow: [
           BoxShadow(
             color: Color.fromRGBO(89, 27, 27, 0.05),
             offset: Offset(0, -8),
             blurRadius: 24,
           ),
         ]),
-        padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
         child: Column(
           children: [
             ElevatedButton(
@@ -357,7 +358,19 @@ class PaymentInfoPage extends StatelessWidget {
                   // Aksi yang akan dilakukan saat tombol ditekan
                   // print('Tombol ditekan!');
                 },
-                child: Container(
+                style: ButtonStyle(
+                  elevation: MaterialStateProperty.all<double>(0),
+                  maximumSize: MaterialStateProperty.all<Size>(
+                      const Size(double.infinity, 64)),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8))),
+                  padding: MaterialStateProperty.all<EdgeInsetsGeometry?>(
+                      const EdgeInsets.all(14)),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(AppColors.primaryColor),
+                ),
+                child: const SizedBox(
                     height: 32,
                     child: Center(
                         child: Text('Track Order',
@@ -368,26 +381,26 @@ class PaymentInfoPage extends StatelessWidget {
                               fontWeight: FontWeight.w500, // Ketebalan teks 500
                               height: 1.33, // Tinggi baris 24px (24/18=1.33)
                               letterSpacing: 0, color: AppColors.whiteColor,
-                            )))),
-                style: ButtonStyle(
-                  elevation: MaterialStateProperty.all<double>(0),
-                  maximumSize: MaterialStateProperty.all<Size>(
-                      Size(double.infinity, 64)),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8))),
-                  padding: MaterialStateProperty.all<EdgeInsetsGeometry?>(
-                      EdgeInsets.all(14)),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(AppColors.primaryColor),
-                )),
-            SizedBox(height: 16),
+                            ))))),
+            const SizedBox(height: 16),
             ElevatedButton(
                 onPressed: () {
                   // Aksi yang akan dilakukan saat tombol ditekan
                   // print('Tombol ditekan!');
                 },
-                child: Container(
+                style: ButtonStyle(
+                  elevation: MaterialStateProperty.all<double>(0),
+                  maximumSize: MaterialStateProperty.all<Size>(
+                      const Size(double.infinity, 64)),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8))),
+                  padding: MaterialStateProperty.all<EdgeInsetsGeometry?>(
+                      const EdgeInsets.all(14)),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(AppColors.whiteColor),
+                ),
+                child: const SizedBox(
                     height: 32,
                     child: Center(
                         child: Text('Retur Product',
@@ -399,19 +412,7 @@ class PaymentInfoPage extends StatelessWidget {
                                     FontWeight.w500, // Ketebalan teks 500
                                 height: 1.33, // Tinggi baris 24px (24/18=1.33)
                                 letterSpacing: 0,
-                                color: AppColors.grey555Color)))),
-                style: ButtonStyle(
-                  elevation: MaterialStateProperty.all<double>(0),
-                  maximumSize: MaterialStateProperty.all<Size>(
-                      Size(double.infinity, 64)),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8))),
-                  padding: MaterialStateProperty.all<EdgeInsetsGeometry?>(
-                      EdgeInsets.all(14)),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(AppColors.whiteColor),
-                )),
+                                color: AppColors.grey555Color))))),
           ],
         ),
       ),

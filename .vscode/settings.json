@@ -2,3 +2,6 @@
   "dart.flutterHotReloadOnSave": true
 }
 
+// "editor.codeActionsOnSave": {
+//   "source.fixAll": true
+// }

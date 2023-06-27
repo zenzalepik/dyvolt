@@ -1,10 +1,7 @@
-import 'package:dyvolt/pages/detail_product_catalog.dart';
 import 'package:dyvolt/pages/detail_product_page.dart';
-import 'package:dyvolt/widgets/card_product.dart';
-import 'package:dyvolt/widgets/components/form_components.dart';
-import 'package:flutter/material.dart';
-import 'package:dyvolt/widgets/slider.dart';
 import 'package:dyvolt/utils/icons.dart';
+import 'package:dyvolt/widgets/card_product.dart';
+import 'package:flutter/material.dart';
 import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/widgets/card_product_small.dart';
@@ -83,11 +80,11 @@ class DetailProductCatalogPage extends StatelessWidget {
     double itemWidth = (screenWidth - 16 - 16 - (16 * 2)) /
         2; // Menghitung lebar item GridView
     double itemHeight = itemWidth /
-        0.67; // Menghitung tinggi item GridView berdasarkan rasio aspek 0.5
+        0.7125; // Menghitung tinggi item GridView berdasarkan rasio aspek 0.5
     return itemWidth / itemHeight;
   }
 
-  final TextEditingController _textEditingController = TextEditingController();
+  // final TextEditingController _textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -96,18 +93,20 @@ class DetailProductCatalogPage extends StatelessWidget {
             AppColors.backgroundColor, // Ganti dengan warna yang diinginkan
         appBar: AppBar(
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
+            icon: const CustomIcon(
+                iconName: 'icon_back', size: 24, color: AppColors.blackColor),
             onPressed: () {
               Navigator.of(context).pop();
             },
           ),
           title: const Text(
-            'Product Catalog',
+            'Detail Product',
             style: TextStyles.textAppBar,
           ),
           centerTitle: true,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
+          toolbarHeight: 56,
+          backgroundColor: AppColors.whiteColor,
+          elevation: 1,
           // actions: [
           //   IconButton(
           //       icon: const CustomIcon(
@@ -122,7 +121,7 @@ class DetailProductCatalogPage extends StatelessWidget {
         body: SingleChildScrollView(
           // physics: NeverScrollableScrollPhysics(),
           child: Column(children: [
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             /*
@@ -205,17 +204,20 @@ class DetailProductCatalogPage extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      mainAxisSpacing: 16,
-                      crossAxisSpacing: 24,
+                      mainAxisSpacing: 8,
+                      crossAxisSpacing: 12,
                       childAspectRatio: _calculateAspectRatio(context),
                     ),
                     itemCount: 5,
                     itemBuilder: (BuildContext context, int index) {
                       return GestureDetector(
-                        onTap: (){ Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => DetailProductPage()),
-            );},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailProductPage()),
+                          );
+                        },
                         child: ProductCard(
                           imageUrl: products[index].imageUrl,
                           productName: products[index].productName,
@@ -227,7 +229,7 @@ class DetailProductCatalogPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 32)
+            const SizedBox(height: 32)
           ]),
         ));
   }

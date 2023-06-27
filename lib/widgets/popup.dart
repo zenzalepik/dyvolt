@@ -13,7 +13,7 @@ void PopUp(BuildContext context, String title, String content) {
         ),
         title: Text(title,
             style: TextStyles.textTitleSection, textAlign: TextAlign.center),
-        content: Container(
+        content: SizedBox(
           width: 320,
           child: Text(content,
               style: TextStyles.textDetailProductDescription,
@@ -24,7 +24,7 @@ void PopUp(BuildContext context, String title, String content) {
             children: [
               Flexible(
                 flex: 1,
-                child: Container(
+                child: SizedBox(
                   width: double.infinity,
                   child: ButtonWhite(
                     text: 'Login',
@@ -35,12 +35,12 @@ void PopUp(BuildContext context, String title, String content) {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 16,
               ),
               Flexible(
                 flex: 1,
-                child: Container(
+                child: SizedBox(
                   width: double.infinity,
                   child: ButtonLarge(
                     text: 'Register',

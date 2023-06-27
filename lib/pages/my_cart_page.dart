@@ -1,15 +1,12 @@
-import 'package:dyvolt/widgets/card_product.dart';
 import 'package:dyvolt/widgets/cart_list.dart';
 import 'package:dyvolt/widgets/sheet_order_confirmation.dart';
 import 'package:flutter/material.dart';
-import 'package:dyvolt/widgets/slider.dart';
 import 'package:dyvolt/utils/icons.dart';
 import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/colors.dart';
-import 'package:dyvolt/widgets/card_product_small.dart';
 
 class MyCartPage extends StatelessWidget {
-  MyCartPage({super.key});
+  const MyCartPage({super.key});
 /*
   final List<Product> products = [
     Product(
@@ -61,7 +58,8 @@ class MyCartPage extends StatelessWidget {
           AppColors.backgroundColor, // Ganti dengan warna yang diinginkan
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const CustomIcon(
+                iconName: 'icon_back', size: 24, color: AppColors.blackColor),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -71,35 +69,52 @@ class MyCartPage extends StatelessWidget {
           style: TextStyles.textAppBar,
         ),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+             toolbarHeight: 56,
+          backgroundColor: AppColors.whiteColor,
+          elevation: 1,
         actions: [
-          IconButton(
-              icon: const CustomIcon(
-                  iconName: 'icon_menu',
-                  size: 24.0,
-                  color: AppColors.blackColor),
-              onPressed: () {
-                Scaffold.of(context).openEndDrawer();
-              }),
+            //        Row(
+            //   children: [
+            //     InkWell(
+            //         child: const CustomIcon(
+            //             iconName: 'icon_cart',
+            //             size: 24.0,
+            //             color: AppColors.blackColor),
+            //         onTap: () {
+            //           Navigator.push(
+            //             context,
+            //             MaterialPageRoute(
+            //                 builder: (context) => const MyCartPage()),
+            //           );
+            //         }),
+            //     IconButton(
+            //         icon: const CustomIcon(
+            //             iconName: 'icon_menu',
+            //             size: 24.0,
+            //             color: AppColors.blackColor),
+            //         onPressed: () {
+            //           Scaffold.of(context).openEndDrawer();
+            //         }),
+            //   ],
+            // ),
         ],
       ),
-      body: Column(
+      body: const Column(
         children: [
           Expanded(child: CartProductList()),
-          const SizedBox(height: 8)
+          SizedBox(height: 8)
         ],
       ),
       bottomNavigationBar: Container(
         height: 82,
-        decoration: BoxDecoration(color: AppColors.whiteColor, boxShadow: [
+        decoration: const BoxDecoration(color: AppColors.whiteColor, boxShadow: [
           BoxShadow(
             color: Color.fromRGBO(89, 27, 27, 0.05),
             offset: Offset(0, -8),
             blurRadius: 24,
           ),
         ]),
-        padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
         child: Column(
           children: [
             ElevatedButton(
@@ -113,12 +128,24 @@ class MyCartPage extends StatelessWidget {
                         ),
                       ),
                       builder: (BuildContext context) {
-                        return SheetOrderConfirm();
+                        return const SheetOrderConfirm();
                       },
                     );
                   
                 },
-                child: Container(
+                style: ButtonStyle(
+                  elevation: MaterialStateProperty.all<double>(0),
+                  maximumSize: MaterialStateProperty.all<Size>(
+                      const Size(double.infinity, 64)),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8))),
+                  padding: MaterialStateProperty.all<EdgeInsetsGeometry?>(
+                      const EdgeInsets.all(14)),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(AppColors.primaryColor),
+                ),
+                child: const SizedBox(
                     height: 32,
                     child: Center(
                         child: Text('Checkout',
@@ -129,19 +156,7 @@ class MyCartPage extends StatelessWidget {
                               fontWeight: FontWeight.w500, // Ketebalan teks 500
                               height: 1.33, // Tinggi baris 24px (24/18=1.33)
                               letterSpacing: 0, color: AppColors.whiteColor,
-                            )))),
-                style: ButtonStyle(
-                  elevation: MaterialStateProperty.all<double>(0),
-                  maximumSize: MaterialStateProperty.all<Size>(
-                      Size(double.infinity, 64)),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8))),
-                  padding: MaterialStateProperty.all<EdgeInsetsGeometry?>(
-                      EdgeInsets.all(14)),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(AppColors.primaryColor),
-                )),
+                            ))))),
           ],
         ),
       ),

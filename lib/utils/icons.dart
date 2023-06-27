@@ -6,7 +6,7 @@ class CustomIcon extends StatelessWidget {
   final double size;
   final Color? color;
 
-  const CustomIcon({
+  const CustomIcon({super.key, 
     required this.iconName,
     this.size = 24.0,
     this.color = Colors.black,

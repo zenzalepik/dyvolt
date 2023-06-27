@@ -1,7 +1,10 @@
 import 'package:dyvolt/pages/boarding_pass_page.dart';
+import 'package:dyvolt/pages/booking_service_page.dart';
+import 'package:dyvolt/pages/history_page.dart';
 import 'package:dyvolt/pages/my_account_page.dart';
 import 'package:dyvolt/pages/my_bookings_page.dart';
 import 'package:dyvolt/pages/personal_info_page.dart';
+import 'package:dyvolt/pages/promo_page.dart';
 import 'package:dyvolt/pages/search_result_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
@@ -28,30 +31,9 @@ class _MainPageState extends State<MainPage> {
 
   List<Widget> pages = [
     HomePage(),
-    const Center(
-      child: Text(
-        'Booking',
-        style: TextStyle(
-          fontSize: 40,
-        ),
-      ),
-    ),
-    const Center(
-      child: Text(
-        'Promo',
-        style: TextStyle(
-          fontSize: 40,
-        ),
-      ),
-    ),
-    const Center(
-      child: Text(
-        'Inbox',
-        style: TextStyle(
-          fontSize: 40,
-        ),
-      ),
-    ),
+    BookingServicePage(),
+    PromoPage(),
+    const HistoryPage(),
     const MyAccountPage()
   ];
 
@@ -60,7 +42,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       endDrawer: Drawer(
         child: ListView(
-          padding: EdgeInsets.fromLTRB(36, 20, 48, 20),
+          padding: const EdgeInsets.fromLTRB(36, 20, 48, 20),
           children: [
             ListTile(
               leading: const CustomIcon(
@@ -91,12 +73,13 @@ class _MainPageState extends State<MainPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => PersonalInfoPage()),
+                                    builder: (context) =>
+                                        const PersonalInfoPage()),
                               );
                             },
                             child: Container(
                                 child: Row(children: [
-                              Container(
+                              SizedBox(
                                 width: 24,
                                 height: 24,
                                 child: ClipRRect(
@@ -155,7 +138,8 @@ class _MainPageState extends State<MainPage> {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MyBookingsPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const MyBookingsPage()),
                 );
               },
             ),
@@ -172,7 +156,8 @@ class _MainPageState extends State<MainPage> {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => BoardingPassPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const BoardingPassPage()),
                 );
               },
             ),
@@ -213,7 +198,7 @@ class _MainPageState extends State<MainPage> {
                 // );
               },
             ),
-            Divider(
+            const Divider(
               color: AppColors.borderDrawerColor, // Warna garis pemisah
               height: 1, // Tinggi garis pemisah dalam logical pixels
               thickness: 1, // Ketebalan garis pemisah dalam logical pixels
@@ -231,7 +216,8 @@ class _MainPageState extends State<MainPage> {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SearchResultPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const SearchResultPage()),
                 );
               },
             ),
@@ -360,7 +346,7 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
             icon: Container(
               margin: const EdgeInsets.only(bottom: 4.0),
-              child: _selectedIndex == 0
+              child: _selectedIndex == 2
                   ? const CustomIcon(
                       iconName: 'icon_promo',
                       size: 24.0,
@@ -375,22 +361,22 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
             icon: Container(
               margin: const EdgeInsets.only(bottom: 4.0),
-              child: _selectedIndex == 0
+              child: _selectedIndex == 3
                   ? const CustomIcon(
-                      iconName: 'icon_inbox',
+                      iconName: 'icon_history',
                       size: 24.0,
                       color: AppColors.whiteColor)
                   : const CustomIcon(
-                      iconName: 'icon_inbox',
+                      iconName: 'icon_history',
                       size: 24.0,
                       color: AppColors.greyIconNavColor),
             ),
-            label: 'Inbox',
+            label: 'History',
           ),
           BottomNavigationBarItem(
             icon: Container(
               margin: const EdgeInsets.only(bottom: 4.0),
-              child: _selectedIndex == 0
+              child: _selectedIndex == 4
                   ? const CustomIcon(
                       iconName: 'icon_profile',
                       size: 24.0,

@@ -4,15 +4,17 @@ import 'package:dyvolt/widgets/components/form_components.dart';
 import 'package:dyvolt/widgets/track_order.dart';
 
 class SheetPopUp extends StatelessWidget {
+  const SheetPopUp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.only(
+      borderRadius: const BorderRadius.only(
         topRight: Radius.circular(32),
         topLeft: Radius.circular(32),
       ),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,10 +36,10 @@ class SheetPopUp extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
-              Text(
+              const Text(
                 'Track Order',
                 style: TextStyle(
                   fontSize: 18,
@@ -45,12 +47,12 @@ class SheetPopUp extends StatelessWidget {
                 ),
                 textAlign: TextAlign.left,
               ),
-              SizedBox(height: 12),
-              TrackOrder(),
-              TrackOrder(),
-              TrackOrder(),
-              TrackOrder(),
-              SizedBox(height: 16),
+              const SizedBox(height: 12),
+              const TrackOrder(),
+              const TrackOrder(),
+              const TrackOrder(),
+              const TrackOrder(),
+              const SizedBox(height: 16),
               Row(
                 children: [
                   Expanded(

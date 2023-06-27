@@ -39,11 +39,11 @@ class CollapseWhite extends StatelessWidget {
               collapsed: ExpandableButton(
                 child: Container(
                   width: double.infinity,
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     color: AppColors.whiteColor,
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         color: Color.fromRGBO(89, 27, 27, 0.05),
                         offset: Offset(0, 5),
@@ -60,7 +60,7 @@ class CollapseWhite extends StatelessWidget {
                       ),
                       Transform.rotate(
                         angle: 0,
-                        child: CustomIcon(
+                        child: const CustomIcon(
                             iconName: 'icon_drop_down',
                             size: 16,
                             color: AppColors.grey555Color),
@@ -74,8 +74,8 @@ class CollapseWhite extends StatelessWidget {
                   ExpandableButton(
                     child: Container(
                       width: double.infinity,
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
+                      padding: const EdgeInsets.all(16),
+                      decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                           topRight: Radius.circular(8),
                           topLeft: Radius.circular(8),
@@ -100,7 +100,7 @@ class CollapseWhite extends StatelessWidget {
                             angle:
                                 3.14159, // Sudut rotasi dalam radian (0.5 radian = 28.65 derajat)
 
-                            child: CustomIcon(
+                            child: const CustomIcon(
                                 iconName: 'icon_drop_down',
                                 size: 16,
                                 color: AppColors.blackColor),
@@ -113,8 +113,8 @@ class CollapseWhite extends StatelessWidget {
                     collapsed: Container(),
                     expanded: Container(
                       // margin: EdgeInsets.only(top: 8),
-                      padding: EdgeInsets.fromLTRB(16, 0, 16, 8),
-                      decoration: BoxDecoration(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                      decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(8),
                             bottomLeft: Radius.circular(8),

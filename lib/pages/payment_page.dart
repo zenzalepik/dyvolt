@@ -1,23 +1,22 @@
-import 'package:barcode_widget/barcode_widget.dart';
-import 'package:dyvolt/main_page.dart';
 import 'package:dyvolt/pages/boarding_pass_page.dart';
-import 'package:dyvolt/pages/login_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/icons.dart';
-import 'package:dyvolt/utils/shadows.dart';
 import 'package:dyvolt/widgets/components/form_components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class PaymentPage extends StatelessWidget {
+  const PaymentPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const CustomIcon(
+                iconName: 'icon_back', size: 24, color: AppColors.blackColor),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -27,8 +26,9 @@ class PaymentPage extends StatelessWidget {
           style: TextStyles.textAppBar,
         ),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+              toolbarHeight: 56,
+          backgroundColor: AppColors.whiteColor,
+          elevation: 1,
         // actions: [
         //   IconButton(
         //       icon: const CustomIcon(
@@ -49,11 +49,11 @@ class PaymentPage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 32),
-                      color: Color(0xFFEEEFEF),
+                      padding: const EdgeInsets.symmetric(horizontal: 32),
+                      color: const Color(0xFFEEEFEF),
                       child: Column(
                         children: [
-                          SizedBox(height: 24),
+                          const SizedBox(height: 24),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -71,7 +71,7 @@ class PaymentPage extends StatelessWidget {
                                   // Isi konten di sini
                                 ),
                               ),
-                              CustomIcon(
+                              const CustomIcon(
                                 iconName: 'icon_date',
                                 color: AppColors.grey555Color,
                                 size: 20,
@@ -91,18 +91,18 @@ class PaymentPage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(height: 16),
-                          Divider(
+                          const SizedBox(height: 16),
+                          const Divider(
                             color: AppColors.borderDrawerColor,
                             height: 1,
                             thickness: 1,
                           ),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Container(
+                              const SizedBox(
                                 width: 68,
                                 // color: Colors.green,
                                 child: Column(
@@ -131,7 +131,7 @@ class PaymentPage extends StatelessWidget {
                                   // Isi konten di sini
                                 ),
                               ),
-                              SizedBox(width: 8),
+                              const SizedBox(width: 8),
                               SvgPicture.asset(
                                 'assets/images/img_plane_ticket.svg', // Ubah path dengan lokasi file SVG Anda
                                 // width:
@@ -139,14 +139,14 @@ class PaymentPage extends StatelessWidget {
                                 fit: BoxFit.fitWidth,
                                 height: 28,
                               ),
-                              SizedBox(width: 8),
+                              const SizedBox(width: 8),
                               Flexible(
                                 child: Container(
                                   color: Colors.red,
                                   // Isi konten di sini
                                 ),
                               ),
-                              Container(
+                              const SizedBox(
                                 width: 68,
                                 // color: Colors.green,
                                 child: Column(
@@ -171,17 +171,17 @@ class PaymentPage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Divider(
+                          const Divider(
                             color: AppColors.borderDrawerColor,
                             height: 1,
                             thickness: 1,
                           ),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Container(
+                              const SizedBox(
                                 width: 68,
                                 // color: Colors.green,
                                 child: Column(
@@ -208,14 +208,14 @@ class PaymentPage extends StatelessWidget {
                                   // Isi konten di sini
                                 ),
                               ),
-                              SizedBox(width: 8),
+                              const SizedBox(width: 8),
                               Flexible(
                                 child: Container(
                                   color: Colors.red,
                                   // Isi konten di sini
                                 ),
                               ),
-                              Container(
+                              const SizedBox(
                                 width: 68,
                                 // color: Colors.green,
                                 child: Column(
@@ -240,7 +240,7 @@ class PaymentPage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 24,
                           ),
                         ],
@@ -252,7 +252,7 @@ class PaymentPage extends StatelessWidget {
 
               Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
                   Container(
@@ -279,7 +279,7 @@ class PaymentPage extends StatelessWidget {
                             )),
                           ],
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Row(
                           children: [
                             Expanded(
@@ -294,7 +294,7 @@ class PaymentPage extends StatelessWidget {
                             )),
                           ],
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Row(
                           children: [
                             Expanded(
@@ -307,7 +307,7 @@ class PaymentPage extends StatelessWidget {
                                 print(value);
                               },
                             )),
-                            SizedBox(
+                            const SizedBox(
                               width: 32,
                             ),
                             Expanded(
@@ -322,7 +322,7 @@ class PaymentPage extends StatelessWidget {
                             )),
                           ],
                         ),
-                        SizedBox(height: 32),
+                        const SizedBox(height: 32),
                         Row(
                           children: [
                             Column(
@@ -339,7 +339,7 @@ class PaymentPage extends StatelessWidget {
                                 )
                               ],
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
                             InkWell(
                               onTap: () {
                                 // Aksi yang dijalankan saat gambar diklik
@@ -349,7 +349,7 @@ class PaymentPage extends StatelessWidget {
                                 height: 20,
                               ),
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
                             InkWell(
                               onTap: () {
                                 // Aksi yang dijalankan saat gambar diklik
@@ -359,7 +359,7 @@ class PaymentPage extends StatelessWidget {
                                 height: 20,
                               ),
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
                             InkWell(
                               onTap: () {
                                 // Aksi yang dijalankan saat gambar diklik
@@ -377,7 +377,7 @@ class PaymentPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
                         Row(
@@ -405,7 +405,7 @@ class PaymentPage extends StatelessWidget {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              BoardingPassPage()),
+                                              const BoardingPassPage()),
                                     );
                                     // );
                                   }),

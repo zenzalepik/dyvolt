@@ -1,13 +1,10 @@
 import 'package:dyvolt/main_page.dart';
-import 'package:dyvolt/pages/login_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/icons.dart';
-import 'package:dyvolt/utils/shadows.dart';
 import 'package:dyvolt/widgets/collapse.dart';
 import 'package:dyvolt/widgets/components/form_components.dart';
 import 'package:dyvolt/widgets/video.dart';
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:video_player/video_player.dart';
@@ -15,13 +12,16 @@ import 'package:video_player/video_player.dart';
 class FAQPage extends StatelessWidget {
   late VideoPlayerController controller;
 
+  FAQPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.backgroundColor,
         appBar: AppBar(
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
+            icon: const CustomIcon(
+                iconName: 'icon_back', size: 24, color: AppColors.blackColor),
             onPressed: () {
               Navigator.of(context).pop();
             },
@@ -31,8 +31,9 @@ class FAQPage extends StatelessWidget {
             style: TextStyles.textAppBar,
           ),
           centerTitle: true,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
+          toolbarHeight: 56,
+          backgroundColor: AppColors.whiteColor,
+          elevation: 1,
           // actions: [
           //   IconButton(
           //       icon: const CustomIcon(
@@ -70,7 +71,7 @@ class FAQPage extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Expanded(
+                                  const Expanded(
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
@@ -97,7 +98,7 @@ class FAQPage extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 24,
                               ),
                               Button(
@@ -107,7 +108,8 @@ class FAQPage extends StatelessWidget {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => MainPage()),
+                                          builder: (context) =>
+                                              const MainPage()),
                                     );
                                   }),
                             ],
@@ -115,56 +117,101 @@ class FAQPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                   ],
                 ),
-                SizedBox(height: 24),
-                Row(
+                const SizedBox(height: 24),
+                const Row(
                   children: [
                     Text('Product Usage ', style: TextStyles.text16px600)
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Row(
                   children: [
-                    CollapseFAQ(
-                      question: 'How do you install it?',
-                      answer:
-                          'Lorem ipsum dolor sit amet consectetur. Risus venenatis in at dignissim. Quam risus nec morbi ac non. Nunc eget integer urna velit vulputate massa. Viverra est a penatibus maecenas metus senectus at in elementum. Et vitae et consectetur egestas fermentum. Nec dui pellentesque est nisi sed sed. Non nunc tempor posuere imperdiet eleifend est sit faucibus.',
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: AppColors.whiteColor,
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Color.fromRGBO(89, 27, 27, 0.05),
+                              offset: Offset(0, 5),
+                              blurRadius: 10,
+                            ),
+                          ],
+                        ),
+                        child: CollapseFAQ(
+                          question: 'How do you install it?',
+                          answer:
+                              'Lorem ipsum dolor sit amet consectetur. Risus venenatis in at dignissim. Quam risus nec morbi ac non. Nunc eget integer urna velit vulputate massa. Viverra est a penatibus maecenas metus senectus at in elementum. Et vitae et consectetur egestas fermentum. Nec dui pellentesque est nisi sed sed. Non nunc tempor posuere imperdiet eleifend est sit faucibus.',
+                        ),
+                      ),
                     ),
                   ],
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Row(
                   children: [
-                    CollapseFAQ(
-                      question: 'How do you install it?',
-                      answer:
-                          'Lorem ipsum dolor sit amet consectetur. Risus venenatis in at dignissim. Quam risus nec morbi ac non. Nunc eget integer urna velit vulputate massa. Viverra est a penatibus maecenas metus senectus at in elementum. Et vitae et consectetur egestas fermentum. Nec dui pellentesque est nisi sed sed. Non nunc tempor posuere imperdiet eleifend est sit faucibus.',
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: AppColors.whiteColor,
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Color.fromRGBO(89, 27, 27, 0.05),
+                              offset: Offset(0, 5),
+                              blurRadius: 10,
+                            ),
+                          ],
+                        ),
+                        child: CollapseFAQ(
+                          question: 'How do you install it?',
+                          answer:
+                              'Lorem ipsum dolor sit amet consectetur. Risus venenatis in at dignissim. Quam risus nec morbi ac non. Nunc eget integer urna velit vulputate massa. Viverra est a penatibus maecenas metus senectus at in elementum. Et vitae et consectetur egestas fermentum. Nec dui pellentesque est nisi sed sed. Non nunc tempor posuere imperdiet eleifend est sit faucibus.',
+                        ),
+                      ),
                     ),
                   ],
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Row(
                   children: [
-                    CollapseFAQ(
-                      question: 'How do you install it?',
-                      answer:
-                          'Lorem ipsum dolor sit amet consectetur. Risus venenatis in at dignissim. Quam risus nec morbi ac non. Nunc eget integer urna velit vulputate massa. Viverra est a penatibus maecenas metus senectus at in elementum. Et vitae et consectetur egestas fermentum. Nec dui pellentesque est nisi sed sed. Non nunc tempor posuere imperdiet eleifend est sit faucibus.',
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: AppColors.whiteColor,
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Color.fromRGBO(89, 27, 27, 0.05),
+                              offset: Offset(0, 5),
+                              blurRadius: 10,
+                            ),
+                          ],
+                        ),
+                        child: CollapseFAQ(
+                          question: 'How do you install it?',
+                          answer:
+                              'Lorem ipsum dolor sit amet consectetur. Risus venenatis in at dignissim. Quam risus nec morbi ac non. Nunc eget integer urna velit vulputate massa. Viverra est a penatibus maecenas metus senectus at in elementum. Et vitae et consectetur egestas fermentum. Nec dui pellentesque est nisi sed sed. Non nunc tempor posuere imperdiet eleifend est sit faucibus.',
+                        ),
+                      ),
                     ),
                   ],
                 ),
-                SizedBox(height: 24),
-                Row(
+                const SizedBox(height: 24),
+                const Row(
                   children: [
                     Text('Product Usage ', style: TextStyles.text16px600),
                     SizedBox(height: 16),
                   ],
                 ),
-                SizedBox(height: 16),
-                Row(
+                const SizedBox(height: 16),
+                const Row(
                   children: [
                     Expanded(
                       child: Home(
@@ -172,7 +219,7 @@ class FAQPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Row(
                   children: [
                     Expanded(

@@ -1,5 +1,3 @@
-import 'package:dyvolt/main_page.dart';
-import 'package:dyvolt/pages/login_page.dart';
 import 'package:dyvolt/pages/payment_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
@@ -8,13 +6,16 @@ import 'package:dyvolt/widgets/components/form_components.dart';
 import 'package:flutter/material.dart';
 
 class PersonalInfoPage extends StatelessWidget {
+  const PersonalInfoPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const CustomIcon(
+                iconName: 'icon_back', size: 24, color: AppColors.blackColor),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -24,8 +25,9 @@ class PersonalInfoPage extends StatelessWidget {
           style: TextStyles.textAppBar,
         ),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+             toolbarHeight: 56,
+          backgroundColor: AppColors.whiteColor,
+          elevation: 1,
         actions: [
           IconButton(
               icon: const CustomIcon(
@@ -40,12 +42,12 @@ class PersonalInfoPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
             Center(
               child: Container(
-                padding: EdgeInsets.all(1),
+                padding: const EdgeInsets.all(1),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(31),
                   color: AppColors.d9Color,
@@ -65,22 +67,22 @@ class PersonalInfoPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
               child: Text(
                 'Joko Tingkir',
                 style: TextStyles.textMenuDrawer,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 32),
-              padding: EdgeInsets.all(0.0),
+              margin: const EdgeInsets.symmetric(horizontal: 32),
+              padding: const EdgeInsets.all(0.0),
               decoration: BoxDecoration(
                 // color: AppColors.whiteColor,
                 borderRadius: BorderRadius.circular(16),
@@ -102,7 +104,7 @@ class PersonalInfoPage extends StatelessWidget {
                       // Logika yang ingin Anda jalankan saat nilai teks berubah
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   IconAddressInput(
                     label: 'Address',
                     hintText: 'Enter your address',
@@ -110,7 +112,7 @@ class PersonalInfoPage extends StatelessWidget {
                       // Logika yang ingin Anda jalankan saat nilai teks berubah
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   IconPassportInput(
                     label: 'Passport',
                     hintText: 'ED 25265 589',
@@ -118,7 +120,7 @@ class PersonalInfoPage extends StatelessWidget {
                       // Logika yang ingin Anda jalankan saat nilai teks berubah
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   IconDateInput(
                     label: 'DOB',
                     hintText: '12/05/1990',
@@ -126,25 +128,25 @@ class PersonalInfoPage extends StatelessWidget {
                       // Logika yang ingin Anda jalankan saat nilai teks berubah
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   IconDropdownInput(
                     label: 'Country',
                     hintText: 'Country',
                     leftIcon: Icons.arrow_downward,
                     rightIcon: Icons.arrow_forward,
-                    options: ['Option 1', 'Option 2', 'Option 3'],
+                    options: const ['Option 1', 'Option 2', 'Option 3'],
                     onChanged: (value) {
                       // Logika yang ingin Anda jalankan saat nilai dropdown berubah
                     },
                   ),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   ButtonLarge(
                       text: 'Confirm',
                       onPressed: () {
                         // Logika yang ingin Anda jalankan saat tombol ditekan
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => PaymentPage()),
+                          MaterialPageRoute(builder: (context) => const PaymentPage()),
                         );
                       }),
                 ],

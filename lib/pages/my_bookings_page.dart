@@ -1,5 +1,3 @@
-import 'package:dyvolt/main_page.dart';
-import 'package:dyvolt/pages/login_page.dart';
 import 'package:dyvolt/utils/colors.dart';
 import 'package:dyvolt/utils/fonts.dart';
 import 'package:dyvolt/utils/icons.dart';
@@ -9,13 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class MyBookingsPage extends StatelessWidget {
+  const MyBookingsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const CustomIcon(
+                iconName: 'icon_back', size: 24, color: AppColors.blackColor),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -25,8 +26,9 @@ class MyBookingsPage extends StatelessWidget {
           style: TextStyles.textAppBar,
         ),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+              toolbarHeight: 56,
+          backgroundColor: AppColors.whiteColor,
+          elevation: 1,
         // actions: [
         //   IconButton(
         //       icon: const CustomIcon(
@@ -45,7 +47,7 @@ class MyBookingsPage extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
                   Container(
@@ -60,7 +62,7 @@ class MyBookingsPage extends StatelessWidget {
                       children: [
                         Center(
                           child: Container(
-                            padding: EdgeInsets.all(8),
+                            padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
                               border: Border.all(
                                 color: AppColors.f6Color,
@@ -77,13 +79,13 @@ class MyBookingsPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 16),
-                        Divider(
+                        const SizedBox(height: 16),
+                        const Divider(
                           color: AppColors.borderDrawerColor,
                           height: 1,
                           thickness: 1,
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         Row(
                           children: [
                             Container(
@@ -99,8 +101,8 @@ class MyBookingsPage extends StatelessWidget {
                                   )),
                               child: Image.asset(''),
                             ),
-                            SizedBox(width: 8),
-                            SizedBox(
+                            const SizedBox(width: 8),
+                            const SizedBox(
                               child: Text(
                                 'IN 230',
                                 style: TextStyles.textLabelDark,
@@ -112,14 +114,14 @@ class MyBookingsPage extends StatelessWidget {
                                 // Isi konten di sini
                               ),
                             ),
-                            Text('01 hr 40min',
+                            const Text('01 hr 40min',
                                 style: TextStyles.textLabelSmall)
                           ],
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Row(
                           children: [
-                            Container(
+                            const SizedBox(
                               width: 68,
                               // color: Colors.green,
                               child: Column(
@@ -155,21 +157,21 @@ class MyBookingsPage extends StatelessWidget {
                                 // Isi konten di sini
                               ),
                             ),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             SvgPicture.asset(
                               'assets/images/img_plane_ticket.svg', // Ubah path dengan lokasi file SVG Anda
                               // width:
                               //     200, // Sesuaikan ukuran gambar sesuai kebutuhan Anda
                               height: 36,
                             ),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Flexible(
                               child: Container(
                                 color: Colors.red,
                                 // Isi konten di sini
                               ),
                             ),
-                            Container(
+                            const SizedBox(
                               width: 68,
                               // color: Colors.green,
                               child: Column(
@@ -202,7 +204,7 @@ class MyBookingsPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -213,7 +215,7 @@ class MyBookingsPage extends StatelessWidget {
                                   hintText: '15/07/2022',
                                   onChanged: (value) {}),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 16,
                             ),
                             Expanded(
@@ -228,16 +230,16 @@ class MyBookingsPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 16),
-                        Divider(
+                        const SizedBox(height: 16),
+                        const Divider(
                           color: AppColors.borderDrawerColor,
                           height: 1,
                           thickness: 1,
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         Row(
                           children: [
-                            Column(
+                            const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
@@ -260,8 +262,8 @@ class MyBookingsPage extends StatelessWidget {
                                 // Isi konten di sini
                               ),
                             ),
-                            SizedBox(width: 8),
-                            Column(
+                            const SizedBox(width: 8),
+                            const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
@@ -284,8 +286,8 @@ class MyBookingsPage extends StatelessWidget {
                                 // Isi konten di sini
                               ),
                             ),
-                            SizedBox(width: 8),
-                            Column(
+                            const SizedBox(width: 8),
+                            const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
@@ -302,14 +304,14 @@ class MyBookingsPage extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Flexible(
                               child: Container(
                                 color: Colors.red,
                                 // Isi konten di sini
                               ),
                             ),
-                            Column(
+                            const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
@@ -328,7 +330,7 @@ class MyBookingsPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 24),
+                        const SizedBox(height: 24),
                         Row(
                           children: [
                             // Expanded(
@@ -361,15 +363,15 @@ class MyBookingsPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 24),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 24),
                   ),
                 ],
               ),
-              Column(
+              const Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 24),
+                    padding: EdgeInsets.symmetric(vertical: 24),
                   ),
                 ],
               ),

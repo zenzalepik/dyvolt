@@ -1,8 +1,6 @@
-import 'package:dyvolt/pages/detail_product_catalog.dart';
 import 'package:dyvolt/pages/detail_product_page.dart';
 import 'package:dyvolt/pages/my_cart_page.dart';
 import 'package:dyvolt/pages/product_catalog_page.dart';
-import 'package:dyvolt/pages/search_result_page.dart';
 import 'package:dyvolt/widgets/card_product.dart';
 import 'package:flutter/material.dart';
 import 'package:dyvolt/widgets/slider.dart';
@@ -85,7 +83,7 @@ class HomePage extends StatelessWidget {
     double itemWidth = (screenWidth - 16 - 16 - (16 * 2)) /
         2; // Menghitung lebar item GridView
     double itemHeight = itemWidth /
-        0.67; // Menghitung tinggi item GridView berdasarkan rasio aspek 0.5
+        0.7125; // Menghitung tinggi item GridView berdasarkan rasio aspek 0.5
     return itemWidth / itemHeight;
   }
 
@@ -96,7 +94,8 @@ class HomePage extends StatelessWidget {
             AppColors.backgroundColor, // Ganti dengan warna yang diinginkan
         appBar: AppBar(
           // leading: IconButton(
-          //   icon: const Icon(Icons.arrow_back),
+          //   icon: CustomIcon(
+          //       iconName: 'icon_back', size: 24, color: AppColors.blackColor),
           //   onPressed: () {
           //     Navigator.of(context).pop();
           //   },
@@ -106,36 +105,53 @@ class HomePage extends StatelessWidget {
             style: TextStyles.textAppBar,
           ),
           centerTitle: true,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
+          toolbarHeight: 56,
+          backgroundColor: AppColors.whiteColor,
+          elevation: 1,
           actions: [
-            IconButton(
-                icon: const CustomIcon(
-                    iconName: 'icon_cart',
-                    size: 24.0,
-                    color: AppColors.blackColor),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => MyCartPage()),
-                  );
-                }),
-            IconButton(
-                icon: const CustomIcon(
-                    iconName: 'icon_menu',
-                    size: 24.0,
-                    color: AppColors.blackColor),
-                onPressed: () {
-                  Scaffold.of(context).openEndDrawer();
-                }),
+            Row(
+              children: [
+                InkWell(
+                    child: const CustomIcon(
+                        iconName: 'icon_cart',
+                        size: 24.0,
+                        color: AppColors.blackColor),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyCartPage()),
+                      );
+                    }),
+                IconButton(
+                    icon: const CustomIcon(
+                        iconName: 'icon_menu',
+                        size: 24.0,
+                        color: AppColors.blackColor),
+                    onPressed: () {
+                      Scaffold.of(context).openEndDrawer();
+                    }),
+              ],
+            ),
           ],
         ),
         body: SingleChildScrollView(
           // physics: NeverScrollableScrollPhysics(),
           child: Column(children: [
+            SizedBox(height: 12),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               width: double.infinity,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromRGBO(89, 27, 27, 0.05),
+                    offset: Offset(0, 5),
+                    blurRadius: 10,
+                    spreadRadius: 0,
+                  ),
+                ],
+              ),
               child: BannerHome(),
             ),
             const SizedBox(
@@ -181,8 +197,18 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 8),
-                SizedBox(
+                Container(
                   height: 112,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromRGBO(89, 27, 27, 0.05),
+                        offset: Offset(0, 5),
+                        blurRadius: 10,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                  ),
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: productsPromo.length,
@@ -265,13 +291,23 @@ class HomePage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height,
+                  decoration: BoxDecoration(
+                      // boxShadow: [
+                      //   BoxShadow(
+                      //     color: Color.fromRGBO(89, 27, 27, 0.05),
+                      //     offset: Offset(0, 5),
+                      //     blurRadius: 10,
+                      //     spreadRadius: 0,
+                      //   ),
+                      // ],
+                      ),
                   child: GridView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      mainAxisSpacing: 16,
-                      crossAxisSpacing: 24,
+                      mainAxisSpacing: 8,
+                      crossAxisSpacing: 12,
                       childAspectRatio: _calculateAspectRatio(context),
                     ),
                     itemCount: 5,
@@ -295,7 +331,7 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 32)
+            const SizedBox(height: 24)
           ]),
         ));
   }
